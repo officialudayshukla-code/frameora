@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * UI Beats MCP server.
+ * Frameora MCP server.
  *
  * Lets a coding agent search the component catalogue, read a component's full
  * documentation and source, and get the exact install command, without the
@@ -37,7 +37,7 @@ const server = new McpServer(
   { name: "uibeats", version: VERSION },
   {
     instructions: [
-      "UI Beats is a library of animated React components (TypeScript, Tailwind CSS, Motion).",
+      "Frameora is a library of animated React components (TypeScript, Tailwind CSS, Motion).",
       "Components are copied into the user's project via the shadcn CLI. This is not an npm",
       "package, and there is nothing to import from node_modules.",
       "",
@@ -95,7 +95,7 @@ function rejectUnknownCategory(catalogue: Catalogue, category?: string) {
 /**
  * Where the CLI puts the file, and what else arrives with it.
  *
- * A block is not one file: it composes other UI Beats components, and the CLI
+ * A block is not one file: it composes other Frameora components, and the CLI
  * installs those alongside it. Reporting `components/ui/<name>.tsx` for
  * everything named the wrong directory for all three blocks and never
  * mentioned the parts, so an agent would write imports against files it had
@@ -107,7 +107,7 @@ function installNotes(entry: CatalogueComponent): string[] {
       ? `components/blocks/${entry.name}.tsx`
       : `components/ui/${entry.name}.tsx`;
 
-  // Bare entries are shadcn's own items (`utils`); a URL is a UI Beats
+  // Bare entries are shadcn's own items (`utils`); a URL is a Frameora
   // component, whose name is the last path segment without the extension.
   const parts = entry.registryDependencies
     .filter((dep) => dep.includes("://"))
@@ -155,9 +155,9 @@ async function guard<T>(run: () => Promise<T>, what: string) {
 server.registerTool(
   "search_components",
   {
-    title: "Search UI Beats components",
+    title: "Search Frameora components",
     description:
-      "Search the UI Beats catalogue by intent or name, e.g. 'card that flips', 'number counting up', 'animated background', 'flip-card'. Returns ranked matches with their description, docs URL and install command. Call get_component afterwards to read the actual source and props.",
+      "Search the Frameora catalogue by intent or name, e.g. 'card that flips', 'number counting up', 'animated background', 'flip-card'. Returns ranked matches with their description, docs URL and install command. Call get_component afterwards to read the actual source and props.",
     inputSchema: {
       query: z
         .string()
@@ -203,15 +203,15 @@ server.registerTool(
           ...matches.map(summarize),
         ].join("\n\n"),
       );
-    }, `search the UI Beats catalogue`),
+    }, `search the Frameora catalogue`),
 );
 
 server.registerTool(
   "get_component",
   {
-    title: "Get a UI Beats component",
+    title: "Get a Frameora component",
     description:
-      "Fetch the complete documentation for one component: description, when to use it, the full props table, a runnable usage example and the entire source file. Read this before writing code that uses a UI Beats component.",
+      "Fetch the complete documentation for one component: description, when to use it, the full props table, a runnable usage example and the entire source file. Read this before writing code that uses a Frameora component.",
     inputSchema: {
       name: z
         .string()
@@ -243,7 +243,7 @@ server.registerTool(
 server.registerTool(
   "list_components",
   {
-    title: "List UI Beats components",
+    title: "List Frameora components",
     description:
       "List every component in the catalogue, grouped by category. Use this to see what is available before searching.",
     inputSchema: {
@@ -279,13 +279,13 @@ server.registerTool(
 
       return textResult(
         [
-          `UI Beats: ${catalogue.count} components, MIT licensed.`,
+          `Frameora: ${catalogue.count} components, MIT licensed.`,
           `Install any of them with: npx shadcn@latest add ${ORIGIN}/r/<name>.json`,
           "",
           ...sections,
         ].join("\n"),
       );
-    }, "list the UI Beats catalogue"),
+    }, "list the Frameora catalogue"),
 );
 
 server.registerTool(

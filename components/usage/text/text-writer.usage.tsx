@@ -4,7 +4,7 @@ import TextWriter from "@/components/demo/text/text-writer";
 const TextWriterUsage = () => {
   return (
     <TextWriter
-      text="Welcome to UI Beats"
+      text="Welcome to Frameora"
       className="text-md mb-4 md:text-lg"
       delay={0.1}
     />

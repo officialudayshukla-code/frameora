@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Button } from "../ui/button";
 import { ChevronDown, Search, SearchX, X } from "lucide-react";
-import { BeatsMark, BrandLockup } from "@/components/brand";
+import { BrandLockup, BrandMark } from "@/components/brand";
 import { GitHubIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 import { ModeToggle } from "./ui-theme-toggle";
@@ -92,18 +92,17 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
           className={`flex items-center ${state === "expanded" ? "pr-3 pl-4" : "px-2"} py-2`}
         >
           {state === "collapsed" && (
-            // `group`, so the bars still react here. The mark is used bare
-            // rather than through BrandLockup, which is what normally carries
-            // it.
-            <Link href="/" aria-label="UI Beats home" className="group">
-              <BeatsMark className="size-6" />
+            // The mark is used bare rather than through BrandLockup, which is
+            // what normally carries it.
+            <Link href="/" aria-label="Frameora home">
+              <BrandMark className="size-6" />
             </Link>
           )}
           {state === "expanded" && (
             <div className="flex w-full items-center justify-between">
               <Link href="/" className="flex items-center">
                 <BrandLockup />
-                <span className="sr-only">UI Beats home</span>
+                <span className="sr-only">Frameora home</span>
               </Link>
               <CommandMenu small />
             </div>
@@ -292,7 +291,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
               {state === "expanded" ? (
                 <span className="truncate">Star on GitHub</span>
               ) : (
-                <span className="sr-only">Star UI Beats on GitHub</span>
+                <span className="sr-only">Star Frameora on GitHub</span>
               )}
             </a>
           </Button>

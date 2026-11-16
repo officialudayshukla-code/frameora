@@ -2,7 +2,7 @@
  * Shared vocabulary for every generated social card.
  *
  * The cards used to drift: the homepage shipped a static PNG using the old
- * lowercase `ui/beats` wordmark on white, while the component cards were dark
+ * lowercase `frameora` wordmark on white, while the component cards were dark
  * with a placeholder gradient square standing in for a logo that never
  * existed. Both now build from the same constants, so a palette change lands
  * on every card at once instead of on one of them.

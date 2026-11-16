@@ -30,7 +30,7 @@ export default function HomePage() {
       {/*
         Four sections, down from six.
         Show it working, say what you get, say what you can do with it, ask for
-        the click. Two sections went: "Why UI Beats" was four paragraphs of
+        the click. Two sections went: "Why Frameora" was four paragraphs of
         specification that belongs in the docs, and the full A-Z index was
         duplicating the ticker in the hero, which already links every single
         component. Neither was earning the scroll it cost.

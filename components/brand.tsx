@@ -1,103 +1,47 @@
-import { MARK_FROM, MARK_TO, markGeometry } from "@/lib/brand";
+import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Drawn on a 32-unit grid, the size the favicon is generated at.
+ * Brand assets, cropped from the supplied Frameora wordmark.
  *
- * Any size works, since the geometry is all ratios, but matching the icon's
- * grid means the two are literally the same numbers rather than the same
- * numbers rounded differently.
- */
-const VIEWBOX = 32;
-const BARS = markGeometry(VIEWBOX);
-
-/**
- * How far each bar stretches when the lockup is hovered.
+ * The wordmark is "Frame", the lens "o", then "ra"; the lens alone is the mark
+ * and doubles as the favicon and the apple touch icon, while the full wordmark
+ * is the feed logo, so every surface shows the same drawing rather than an
+ * approximation of it.
  *
- * Deliberately uneven and deliberately CSS: the mark reacts like a level meter
- * rather than a logo that scales, and it costs no JavaScript on every page of
- * the site. `motion-reduce` drops it entirely.
+ * Both PNGs are white glyphs on transparency because the site's default theme
+ * is dark. `invert dark:invert-0` turns them black under the light theme with
+ * no JavaScript and no second asset.
  */
-const HOVER_SCALE = [
-  "group-hover:scale-y-[1.7]",
-  "group-hover:scale-y-[0.62]",
-  "group-hover:scale-y-[1.5]",
-  "group-hover:scale-y-[0.78]",
-];
+const MARK_SRC = assetPath("/frameora-mark.png");
+const WORDMARK_SRC = assetPath("/frameora-wordmark.png");
 
-/** Staggered so the bars move as a meter rather than snapping together. */
-const HOVER_DELAY = [
-  "delay-0",
-  "delay-[40ms]",
-  "delay-[80ms]",
-  "delay-[120ms]",
-];
+/** Intrinsic size of the cropped source files, in pixels. */
+const MARK_SIZE = 24;
+const WORDMARK_WIDTH = 122;
+const WORDMARK_HEIGHT = 28;
 
-interface BeatsMarkProps {
+interface BrandMarkProps {
   className?: string;
 }
 
 /**
- * The brand mark: four purple equalizer bars.
+ * The common logo, used bare where space is tight (the collapsed sidebar).
  *
- * Identical in construction to the favicon and the apple icon, because all
- * three read `markGeometry` and the same two hexes. No enclosing tile and no
- * theme tokens: the bars are the mark, and their colour is a constant so a
- * generated PNG can match it exactly.
- *
- * The bars answer `group-hover` on whatever wraps the mark, so put `group` on
- * the link or lockup that contains it.
+ * The bars that used to animate on hover are gone with the old brand; the
+ * mark is a static image now, so there is no transition to carry.
  */
-export function BeatsMark({ className }: BeatsMarkProps) {
+export function BrandMark({ className }: BrandMarkProps) {
   return (
-    <svg
-      viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
-      fill="none"
+    <Image
+      src={MARK_SRC}
+      alt=""
       aria-hidden="true"
-      className={cn("size-7", className)}
-    >
-      <defs>
-        {/*
-         * A fixed id. Two marks on one page would collide, but they resolve to
-         * an identical definition, so the duplicate is invisible rather than
-         * wrong, and it keeps this component hook-free and usable from a
-         * server component.
-         *
-         * `userSpaceOnUse` so the ramp spans the whole mark rather than
-         * restarting inside each bar, which is what lets the PNG match it by
-         * sampling one colour per bar.
-         */}
-        <linearGradient
-          id="uibeats-mark"
-          x1="0"
-          y1="0"
-          x2={VIEWBOX}
-          y2="0"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0%" stopColor={MARK_FROM} />
-          <stop offset="100%" stopColor={MARK_TO} />
-        </linearGradient>
-      </defs>
-
-      {BARS.map((bar, index) => (
-        <rect
-          key={index}
-          x={bar.x}
-          y={bar.y}
-          width={bar.width}
-          height={bar.height}
-          rx={bar.radius}
-          fill="url(#uibeats-mark)"
-          className={cn(
-            "origin-center transition-transform duration-300 ease-out motion-reduce:transition-none",
-            HOVER_SCALE[index],
-            HOVER_DELAY[index],
-            "motion-reduce:group-hover:scale-y-100",
-          )}
-        />
-      ))}
-    </svg>
+      width={MARK_SIZE}
+      height={MARK_SIZE}
+      className={cn("size-7 invert dark:invert-0", className)}
+    />
   );
 }
 
@@ -110,17 +54,24 @@ interface BrandLockupProps {
 /**
  * Mark plus wordmark, as used in the header and the expanded sidebar.
  *
- * `group` is on the lockup rather than the mark so hovering anywhere on the
- * logo, wordmark included, drives the bars.
+ * The wordmark is the supplied logo, so the lockup is the artwork itself; the
+ * accessible name comes from the `sr-only` label on the link that wraps it.
  */
 export function BrandLockup({ className, markOnly = false }: BrandLockupProps) {
   return (
-    <span className={cn("group flex shrink-0 items-center gap-2", className)}>
-      <BeatsMark className="size-7" />
-      {markOnly ? null : (
-        <span className="font-display text-[15px] font-bold tracking-tight">
-          UI Beats
-        </span>
+    <span className={cn("flex shrink-0 items-center", className)}>
+      {markOnly ? (
+        <BrandMark className="size-7" />
+      ) : (
+        <Image
+          src={WORDMARK_SRC}
+          alt=""
+          aria-hidden="true"
+          width={WORDMARK_WIDTH}
+          height={WORDMARK_HEIGHT}
+          priority
+          className="h-5 w-auto invert dark:invert-0"
+        />
       )}
     </span>
   );

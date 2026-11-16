@@ -3,7 +3,7 @@
  *
  * After this runs, any component can be installed with:
  *
- *     npx shadcn@latest add https://uibeats.com/r/flip-card.json
+ *     npx shadcn@latest add https://officialudayshukla-code.github.io/frameora/r/flip-card.json
  *
  * Everything is derived from `content/docs/*` plus the component source on
  * disk, so the registry cannot drift from the docs. Run via `yarn registry:build`
@@ -23,7 +23,8 @@ const DEMO_DIR = path.join(ROOT, "components", "demo");
 const MCP_PKG = path.join(ROOT, "packages", "mcp", "package.json");
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://uibeats.com"
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://officialudayshukla-code.github.io/frameora"
 ).replace(/\/$/, "");
 
 /**
@@ -77,7 +78,7 @@ interface RegistryItem {
 }
 
 /**
- * A UI Beats component named as an absolute registry URL.
+ * A Frameora component named as an absolute registry URL.
  *
  * shadcn resolves a `registryDependencies` entry that looks like a URL by
  * fetching it, which is how a block installed from here brings its own parts
@@ -148,7 +149,7 @@ interface CatalogueEntry {
 /**
  * The MCP server card, at `/.well-known/mcp.json`.
  *
- * Lets an agent that only knows the domain discover that a UI Beats MCP server
+ * Lets an agent that only knows the domain discover that a Frameora MCP server
  * exists and how to run it, instead of needing someone to have read the README.
  *
  * `packages` rather than `remotes`: this server is stdio, spawned by the client
@@ -167,15 +168,15 @@ function writeServerCard() {
       "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
     // Reverse-DNS, exactly one slash, per the schema.
     name: "com.uibeats/mcp",
-    title: "UI Beats",
+    title: "Frameora",
     description: pkg.description,
     version: pkg.version,
     websiteUrl: SITE_URL,
     repository: {
-      url: "https://github.com/nikhils4/ui-beats",
+      url: "https://github.com/officialudayshukla-code/frameora",
       source: "github",
       // Stable across renames, and changes if the repo is deleted and recreated.
-      id: "825856991",
+      id: "1460124932",
       subfolder: "packages/mcp",
     },
     packages: [

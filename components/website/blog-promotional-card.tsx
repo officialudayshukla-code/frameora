@@ -20,7 +20,9 @@ const BlogPromotionalCard = () => {
             className="hover:bg-opacity-90 rounded-md bg-gray-800 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-white dark:text-gray-800"
             asChild
           >
-            <a href="https://uibeats.com">Explore Components</a>
+            <a href="https://officialudayshukla-code.github.io/frameora">
+              Explore Components
+            </a>
           </Button>
         </div>
         <div className="mt-8 flex-1 md:mt-0 md:ml-8">

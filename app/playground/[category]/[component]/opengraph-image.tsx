@@ -5,7 +5,10 @@ import { siteConfig } from "@/lib/site";
 import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard } from "@/lib/og-card";
 
-export const alt = "UI Beats playground";
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
+export const alt = "Frameora playground";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -46,7 +49,7 @@ export default async function OpengraphImage({
       body={`Tune ${entry.title} live: every prop as a control, the code updating as you go.`}
       footerLeft={
         <div style={{ color: og.brand, fontWeight: 600 }}>
-          {`uibeats.com/playground/${entry.category}/${entry.name}`}
+          {`officialudayshukla-code.github.io/frameora/playground/${entry.category}/${entry.name}`}
         </div>
       }
       footerRight="Live controls"

@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Introduction",
   description:
-    "UI Beats is a collection of animated React components built with TypeScript, Tailwind CSS and Motion. Copy and paste them, or install with the shadcn CLI.",
+    "Frameora is a collection of animated React components built with TypeScript, Tailwind CSS and Motion. Copy and paste them, or install with the shadcn CLI.",
   alternates: { canonical: absoluteUrl("/docs/getting-started/introduction") },
 };
 
@@ -75,7 +75,7 @@ export default function IntroductionPage() {
       </DocsPageHeader>
 
       <p className="mt-8 leading-7">
-        UI Beats is a collection of {count} reusable components crafted with
+        Frameora is a collection of {count} reusable components crafted with
         React, TypeScript, Tailwind CSS and{" "}
         <a
           href="https://motion.dev"
@@ -138,7 +138,7 @@ export default function IntroductionPage() {
 
       <footer className="mt-16 border-t pt-6">
         <p className="text-sm text-muted-foreground">
-          UI Beats is inspired by{" "}
+          Frameora is inspired by{" "}
           <a
             href="https://ui.shadcn.com/"
             target="_blank"

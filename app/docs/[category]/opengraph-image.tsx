@@ -10,7 +10,10 @@ import { siteConfig } from "@/lib/site";
 import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard, clamp } from "@/lib/og-card";
 
-export const alt = "UI Beats components";
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
+export const alt = "Frameora components";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -50,7 +53,7 @@ export default async function OpengraphImage({
           {`${count} component${count === 1 ? "" : "s"}`}
         </div>
       }
-      footerRight={`uibeats.com/docs/${category}`}
+      footerRight={`officialudayshukla-code.github.io/frameora/docs/${category}`}
     />,
     size,
   );

@@ -32,7 +32,7 @@ describe("reduced motion", () => {
    * exactly the box-ticking import the next test exists to catch.
    *
    * The exemption is deliberately narrow: it needs both no Motion of its own
-   * *and* at least one UI Beats component it delegates to. A component that
+   * *and* at least one Frameora component it delegates to. A component that
    * simply forgot to animate anything is not covered by it.
    */
   const animatesDirectly = (entry: (typeof registry)[number]) =>

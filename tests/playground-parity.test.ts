@@ -79,7 +79,7 @@ function extractCopy(source: string): Set<string> {
  */
 const EXCEPTIONS: Record<string, { phrases: string[]; why: string }> = {
   "text/split-flap": {
-    phrases: ["DEPARTURES", "NOW BOARDING", "ON TIME", "UI BEATS"],
+    phrases: ["DEPARTURES", "NOW BOARDING", "ON TIME", "FRAMEORA"],
     why: "The docs demo flips through a board of words on an interval. The studio gives `text` a control, so it shows one word and lets the reader change it.",
   },
   "button/ripple-button": {

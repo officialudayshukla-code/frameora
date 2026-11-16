@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "CLI",
   description:
-    "Install any UI Beats component with the shadcn CLI. Dependencies are resolved for you.",
+    "Install any Frameora component with the shadcn CLI. Dependencies are resolved for you.",
   alternates: { canonical: absoluteUrl("/docs/getting-started/cli") },
 };
 
@@ -34,7 +34,7 @@ export default function CliPage() {
       />
 
       <p className="mt-8 max-w-2xl leading-7">
-        UI Beats publishes a{" "}
+        Frameora publishes a{" "}
         <a
           href="https://ui.shadcn.com/docs/registry"
           target="_blank"

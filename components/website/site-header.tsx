@@ -9,6 +9,6 @@ import { getGithubStarsCount } from "@/lib/utils";
  * costs the visitor nothing.
  */
 export async function SiteHeader() {
-  const stars = await getGithubStarsCount("nikhils4/ui-beats");
+  const stars = await getGithubStarsCount("officialudayshukla-code/frameora");
   return <Header stars={stars} />;
 }

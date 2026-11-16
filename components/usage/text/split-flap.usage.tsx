@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { SplitFlap } from "@/components/demo/text/split-flap";
 
-const board = ["DEPARTURES", "NOW BOARDING", "ON TIME", "UI BEATS"];
+const board = ["DEPARTURES", "NOW BOARDING", "ON TIME", "FRAMEORA"];
 
 const SplitFlapUsage = () => {
   const [index, setIndex] = useState(0);

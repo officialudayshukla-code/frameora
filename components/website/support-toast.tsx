@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 import { siteConfig } from "@/lib/site";
 
-const STORAGE_KEY = "uibeats:support-toast-shown";
+const STORAGE_KEY = "frameora:support-toast-shown";
 
 /**
  * One-time "star the repo" nudge.
@@ -32,7 +32,7 @@ export function SupportToast() {
         /* best effort */
       }
 
-      toast("Show your support for UI Beats", {
+      toast("Show your support for Frameora", {
         description: "Keep building for good! ❤️",
         duration: 30_000,
         action: {

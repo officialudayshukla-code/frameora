@@ -46,8 +46,8 @@ test.describe("seo endpoints", () => {
     expect(xml).toContain("/docs/card/flip-card");
 
     /*
-     * Regression: the sitemap used to emit www.uibeats.com while canonical
-     * tags used uibeats.com, splitting ranking signals across two hosts.
+     * Regression: the sitemap once spelled the origin differently from the
+     * canonical tags, splitting ranking signals across two hosts.
      */
     const hosts = new Set(
       [...xml.matchAll(/<loc>(https?:\/\/[^/<]+)/g)].map((m) => m[1]),

@@ -8,7 +8,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contribute",
   description:
-    "How to contribute a component to UI Beats: project setup, the scaffolder, the seven places a component lives, the fields the suite enforces, and the PR checklist.",
+    "How to contribute a component to Frameora: project setup, the scaffolder, the seven places a component lives, the fields the suite enforces, and the PR checklist.",
   alternates: { canonical: absoluteUrl("/docs/getting-started/contribute") },
 };
 
@@ -35,7 +35,7 @@ export default function ContributePage() {
         <CodeBlock
           language="bash"
           code={`git clone ${siteConfig.links.github}.git
-cd ui-beats
+cd frameora
 corepack enable
 yarn install
 yarn dev`}

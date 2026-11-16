@@ -20,7 +20,7 @@ export function ShowcaseCard() {
           Built something?
         </h3>
         <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
-          We&apos;d love to feature what you made with UI Beats in the showcase.
+          We&apos;d love to feature what you made with Frameora in the showcase.
         </p>
         <Link
           href="https://forms.gle/eVBGbBEyG1ELqDMv6"

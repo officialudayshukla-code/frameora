@@ -3,7 +3,7 @@ import type { ComponentCategory } from "@/types/component-config.type";
 /**
  * Search-facing titles for component pages.
  *
- * The pages used to be titled "Flip Card | UI Beats", which only competes for
+ * The pages used to be titled "Flip Card | Frameora", which only competes for
  * a query nobody types. People search "react flip card component" and "react
  * text shine animation", so the title leads with those words and keeps the
  * brand as the suffix.

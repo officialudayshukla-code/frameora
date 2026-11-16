@@ -10,9 +10,9 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "MCP Server",
   description:
-    "Let Claude Code, Cursor and any other MCP client search, read and install UI Beats components without leaving your editor.",
+    "Let Claude Code, Cursor and any other MCP client search, read and install Frameora components without leaving your editor.",
   keywords: [
-    "ui beats mcp",
+    "frameora mcp",
     "mcp server react components",
     "claude code react components",
     "cursor mcp ui library",
@@ -59,12 +59,12 @@ export default function McpPage() {
 
       <DocsPageHeader
         title="MCP Server"
-        description="Use UI Beats from inside your coding agent."
+        description="Use Frameora from inside your coding agent."
       />
 
       <p className="mt-8 max-w-2xl leading-7">
         Most components now get chosen by whatever is writing the code, not by
-        someone browsing a gallery. The UI Beats MCP server puts the whole
+        someone browsing a gallery. The Frameora MCP server puts the whole
         catalogue ({registry.length} components, their props and their source)
         inside Claude Code, Cursor, Windsurf, or any other client that speaks{" "}
         <a

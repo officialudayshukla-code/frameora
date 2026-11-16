@@ -4,7 +4,10 @@ import { siteConfig } from "@/lib/site";
 import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard, clamp } from "@/lib/og-card";
 
-export const alt = "UI Beats blog post";
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
+export const alt = "Frameora blog post";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -18,7 +21,7 @@ export function generateStaticParams() {
  * Posts previously unfurled with their `image` frontmatter: 16:9 hero art
  * carrying a different brand (pastel field, `nikhils.ca` byline), letterboxed
  * into a 1.91:1 slot. That art is still the in-page hero; only the social
- * preview is overridden here, so a shared post now reads as UI Beats.
+ * preview is overridden here, so a shared post now reads as Frameora.
  */
 export default async function OpengraphImage({
   params,

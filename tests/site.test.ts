@@ -7,9 +7,9 @@ describe("site config", () => {
   });
 
   /*
-   * Regression: canonical tags used `uibeats.com` while the sitemap used
-   * `www.uibeats.com`, splitting ranking signals across two hosts. Every URL
-   * now comes from one constant.
+   * Regression: canonical tags and the sitemap once spelled the same origin
+   * differently, splitting ranking signals across two hosts. Every URL now
+   * comes from one constant.
    */
   it("builds absolute URLs from a single origin", () => {
     expect(absoluteUrl("/docs")).toBe(`${siteConfig.url}/docs`);

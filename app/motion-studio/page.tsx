@@ -5,7 +5,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 const title = "Motion Studio: cubic bezier and spring editor for React";
 const description =
-  "Tune any UI Beats component live, shape its easing curve or spring, and copy the code. Free, no sign-up.";
+  "Tune any Frameora component live, shape its easing curve or spring, and copy the code. Free, no sign-up.";
 
 export const metadata: Metadata = {
   // Absolute, because this is a tool page that should rank on its own terms

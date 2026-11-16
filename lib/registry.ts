@@ -70,7 +70,7 @@ export interface RegistryEntry extends ComponentConfig {
   /** shadcn registry items the component depends on (e.g. `utils`). */
   registryDependencies: string[];
   /**
-   * Other UI Beats components this one composes, by name.
+   * Other Frameora components this one composes, by name.
    *
    * Empty for every primitive; a block lists the parts it is assembled from,
    * which the docs page shows so a reader can see what an install brings with

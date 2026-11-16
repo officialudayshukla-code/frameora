@@ -36,7 +36,7 @@ import {
 export const EVENTS = [
   {
     icon: Star,
-    title: "New star on ui-beats",
+    title: "New star on frameora",
     meta: "just now",
     tone: "text-amber-500",
   },

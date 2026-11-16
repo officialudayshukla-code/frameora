@@ -50,7 +50,7 @@ const SplitFlapContent: ComponentConfig = {
   },
   playground: {
     defaults: {
-      text: "UI BEATS",
+      text: "FRAMEORA",
     },
   },
 };

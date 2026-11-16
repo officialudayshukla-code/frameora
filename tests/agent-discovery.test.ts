@@ -6,7 +6,7 @@ import { CATEGORY_ORDER } from "@/config/categories";
 const ROOT = process.cwd();
 
 /**
- * The surfaces an agent uses to find UI Beats without a human in the loop: the
+ * The surfaces an agent uses to find Frameora without a human in the loop: the
  * `Link: rel="alternate"` header on every component page, and the MCP server
  * card at `/.well-known/mcp.json`.
  */
@@ -44,7 +44,9 @@ describe("markdown alternate link", () => {
     expect(config).toContain(
       '</docs/:category/:component.md>; rel="alternate"; type="text/markdown"',
     );
-    expect(config).not.toContain("https://uibeats.com/docs/:category");
+    expect(config).not.toContain(
+      "https://officialudayshukla-code.github.io/frameora/docs/:category",
+    );
   });
 });
 

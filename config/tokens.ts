@@ -63,7 +63,7 @@ export interface BeatsToken {
 }
 
 /**
- * Tokens UI Beats owns, emitted as `cssVars` on any item that uses one.
+ * Tokens Frameora owns, emitted as `cssVars` on any item that uses one.
  *
  * Values match `app/globals.css`: this is the same palette, restated in the
  * form the shadcn CLI merges into a user's stylesheet. Kept deliberately small:

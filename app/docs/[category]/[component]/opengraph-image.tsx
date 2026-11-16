@@ -5,7 +5,10 @@ import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard, clamp } from "@/lib/og-card";
 import type { ComponentCategory } from "@/types/component-config.type";
 
-export const alt = "UI Beats component";
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
+export const alt = "Frameora component";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -32,7 +35,7 @@ export default async function OpengraphImage({
   const entry = getComponent(category, component);
 
   const label = entry ? categoryLabel(entry.category as ComponentCategory) : "";
-  const install = `npx shadcn@latest add uibeats.com/r/${entry?.name ?? "component"}.json`;
+  const install = `npx shadcn@latest add officialudayshukla-code.github.io/frameora/r/${entry?.name ?? "component"}.json`;
 
   return new ImageResponse(
     <OgCard

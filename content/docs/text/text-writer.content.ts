@@ -79,7 +79,7 @@ const TextWriterContent: ComponentConfig = {
   ],
   playground: {
     defaults: {
-      text: "Welcome to UI Beats",
+      text: "Welcome to Frameora",
     },
   },
 };

@@ -4,14 +4,14 @@
   "private": true,
   "description": "Beautifully designed, animated React components you can copy, paste, or install with the shadcn CLI.",
   "license": "MIT",
-  "author": "Nikhil Singh (https://nikhils4.vercel.app)",
-  "homepage": "https://uibeats.com",
+  "author": "Frameora (https://github.com/officialudayshukla-code)",
+  "homepage": "https://officialudayshukla-code.github.io/frameora",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nikhils4/ui-beats.git"
+    "url": "git+https://github.com/officialudayshukla-code/frameora.git"
   },
   "bugs": {
-    "url": "https://github.com/nikhils4/ui-beats/issues"
+    "url": "https://github.com/officialudayshukla-code/frameora/issues"
   },
   "engines": {
     "node": ">=20.9.0"

@@ -4,6 +4,10 @@ import { getRegistry } from "@/lib/registry";
 import { GETTING_STARTED } from "@/config/categories";
 import { absoluteUrl } from "@/lib/site";
 
+// Built from local content only, so it prerenders. Required by `output:
+// "export"`, where every metadata route must be static.
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

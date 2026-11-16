@@ -105,7 +105,7 @@ export function Header({ stars = 0 }: { stars?: number }) {
                 </>
               ) : null}
               <span className="sr-only">
-                Star UI Beats on GitHub
+                Star Frameora on GitHub
                 {stars > 0 ? ` (${stars} stars)` : ""}
               </span>
             </a>

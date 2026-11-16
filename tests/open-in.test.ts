@@ -23,7 +23,9 @@ describe("v0 hand-off", () => {
   });
 
   it("encodes the registry URL rather than splicing it in raw", () => {
-    expect(v0Url("flip-card")).not.toContain("https://uibeats.com/r");
+    expect(v0Url("flip-card")).not.toContain(
+      "https://officialudayshukla-code.github.io/frameora/r",
+    );
   });
 
   it("skips the legacy host, which signs the reader in on the wrong origin", () => {

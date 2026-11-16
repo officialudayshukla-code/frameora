@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard } from "@/lib/og-card";
 
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
 export const alt = "Motion Studio: cubic bezier and spring editor";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
@@ -19,10 +22,10 @@ export default function OpengraphImage() {
     <OgCard
       eyebrow="/ Motion Studio"
       title="Shape the curve, copy the code"
-      body="Tune any UI Beats component live, shape its easing curve or spring, and copy the code. Free, no sign-up."
+      body="Tune any Frameora component live, shape its easing curve or spring, and copy the code. Free, no sign-up."
       footerLeft={
         <div style={{ color: og.brand, fontWeight: 600 }}>
-          uibeats.com/motion-studio
+          officialudayshukla-code.github.io/frameora/motion-studio
         </div>
       }
       footerRight="Cubic bezier · Spring"

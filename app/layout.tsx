@@ -106,11 +106,30 @@ export const metadata: Metadata = {
     },
   },
   /*
-   * No `icons` key on purpose. It used to point at the checked-in PNGs of the
-   * retired logo, and an explicit entry here outranks Next's file-based icons,
-   * so `app/icon.tsx` and `app/apple-icon.tsx` would have generated the new
-   * mark and then never been linked. Leaving it out lets those two files win.
+   * Static PNGs from `public/`, addressed absolutely.
+   *
+   * Next's generated icon routes skip `basePath` in a static export: the build
+   * emitted `<link href="/icon?<hash>">` and a file called `out/icon/icon`, so
+   * on a project site the tab icon 404s. Absolute URLs are the one form the
+   * export leaves alone, and they keep working when `NEXT_PUBLIC_SITE_URL`
+   * moves the site to a custom domain.
    */
+  icons: {
+    icon: [
+      {
+        url: absoluteUrl("/favicon-32x32.png"),
+        type: "image/png",
+        sizes: "32x32",
+      },
+    ],
+    apple: [
+      {
+        url: absoluteUrl("/apple-touch-icon.png"),
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
@@ -172,7 +191,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           // Static object defined above; no user input reaches this.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {process.env.NODE_ENV === "production" ? (
+        {process.env.NODE_ENV === "production" && siteConfig.analyticsId ? (
           <GoogleAnalytics gaId={siteConfig.analyticsId} />
         ) : null}
       </body>

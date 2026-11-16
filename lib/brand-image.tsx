@@ -1,48 +1,42 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { ImageResponse } from "next/og";
-import { markGeometry } from "@/lib/brand";
-
-interface BrandMarkOptions {
-  /**
-   * Paint a solid backdrop instead of leaving the PNG transparent.
-   *
-   * Only the apple touch icon wants one. iOS composites a transparent icon
-   * onto black, so the choice is between picking the backdrop or having the
-   * platform pick it.
-   */
-  background?: string;
-  /**
-   * Fraction of the canvas the mark occupies. 1 fills it edge to edge.
-   *
-   * Anything with a backdrop needs headroom: iOS masks the square into a
-   * superellipse, and at full bleed the outer bars run into the corner curve.
-   */
-  scale?: number;
-}
 
 /**
- * The brand mark rendered as a PNG.
+ * A raster version of the Frameora wordmark, for the one slot that needs a PNG
+ * rather than the inline image used in the site chrome: the stable
+ * `/brand-mark.png` route that feed readers and `publisher.logo` in blog
+ * JSON-LD point at.
  *
- * Three slots need a raster version of a mark that is an SVG everywhere else:
- * the favicon, the apple touch icon, and the square avatar a feed reader shows
- * beside every item. All three call this, so there is one definition of the
- * mark and no binary to re-export by hand, which is exactly how the previous
- * logo drifted.
- *
- * Bars are absolutely positioned from `markGeometry` rather than laid out with
- * flexbox. Flex would look about right, but "about right" is how the favicon
- * and the header logo ended up as two different drawings; sharing the geometry
- * function makes them the same picture by construction.
- *
- * The default is transparent, so the favicon is exactly the bars the header
- * shows and a tab strip supplies its own backdrop in either theme.
+ * The artwork lives in `public/` as the cropped wordmark, so the raster
+ * surface and the header are the same picture by construction. The favicon and
+ * the apple touch icon are static files in `public/` rather than generated
+ * routes: in a static export Next writes their `<link href>` without
+ * `basePath`, so on a project site they 404.
  */
-export function brandMarkImage(
-  size: number,
-  { background, scale = 1 }: BrandMarkOptions = {},
+const WORDMARK_ASSET = "frameora-wordmark.png";
+
+/** Intrinsic aspect of the cropped wordmark (122 x 28 pixels). */
+const WORDMARK_ASPECT = 122 / 28;
+
+const dataUrls = new Map<string, string>();
+
+/** Read a public asset once per process and inline it for Satori. */
+function assetDataUrl(asset: string): string {
+  const cached = dataUrls.get(asset);
+  if (cached) return cached;
+  const file = path.join(process.cwd(), "public", asset);
+  const url = `data:image/png;base64,${readFileSync(file).toString("base64")}`;
+  dataUrls.set(asset, url);
+  return url;
+}
+
+/** The full wordmark, sized by width so the aspect never distorts. */
+export function brandWordmarkImage(
+  width: number,
+  { background }: { background?: string } = {},
 ): ImageResponse {
-  const markSize = size * scale;
-  const offset = (size - markSize) / 2;
-  const bars = markGeometry(markSize);
+  const height = Math.round(width / WORDMARK_ASPECT);
 
   return new ImageResponse(
     <div
@@ -50,25 +44,19 @@ export function brandMarkImage(
         width: "100%",
         height: "100%",
         display: "flex",
-        position: "relative",
+        alignItems: "center",
+        justifyContent: "center",
         ...(background ? { background } : {}),
       }}
     >
-      {bars.map((bar, index) => (
-        <div
-          key={index}
-          style={{
-            position: "absolute",
-            left: offset + bar.x,
-            top: offset + bar.y,
-            width: bar.width,
-            height: bar.height,
-            borderRadius: bar.radius,
-            background: bar.color,
-          }}
-        />
-      ))}
+      <img
+        src={assetDataUrl(WORDMARK_ASSET)}
+        alt=""
+        width={width}
+        height={height}
+        style={{ width, height }}
+      />
     </div>,
-    { width: size, height: size },
+    { width, height },
   );
 }

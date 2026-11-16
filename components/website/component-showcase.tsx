@@ -176,7 +176,7 @@ function BeamDiagram() {
   );
 }
 
-const BOARD = ["NOW BOARDING", "ON TIME", "UI BEATS"];
+const BOARD = ["NOW BOARDING", "ON TIME", "FRAMEORA"];
 
 /** The board earns its place by changing; a word that lands once is a JPEG. */
 function FlapBoard() {
@@ -211,7 +211,7 @@ const QUOTES = [
 const FEED = [
   {
     icon: Star,
-    title: "New star on ui-beats",
+    title: "New star on frameora",
     meta: "just now",
     tone: "text-amber-500",
   },
@@ -717,7 +717,7 @@ export function ComponentShowcase({ total }: { total: number }) {
             <FlipCard
               frontContent={{ title: "Discover", subtitle: "Hover to flip" }}
               backContent={{
-                title: "UI Beats",
+                title: "Frameora",
                 description: "Own the code the moment you copy it.",
               }}
               width="100%"

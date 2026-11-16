@@ -1,14 +1,14 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.uibeats/mcp",
-  "title": "UI Beats",
-  "description": "MCP server for UI Beats. Let your coding agent search, read and install animated React components.",
+  "title": "Frameora",
+  "description": "MCP server for Frameora. Let your coding agent search, read and install animated React components.",
   "version": "0.1.2",
-  "websiteUrl": "https://uibeats.com",
+  "websiteUrl": "https://officialudayshukla-code.github.io/frameora",
   "repository": {
-    "url": "https://github.com/nikhils4/ui-beats",
+    "url": "https://github.com/officialudayshukla-code/frameora",
     "source": "github",
-    "id": "825856991",
+    "id": "1460124932",
     "subfolder": "packages/mcp"
   },
   "packages": [

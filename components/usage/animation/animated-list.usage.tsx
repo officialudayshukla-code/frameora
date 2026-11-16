@@ -6,7 +6,7 @@ import { AnimatedList } from "@/components/demo/animation/animated-list";
 const events = [
   {
     icon: Star,
-    title: "New star on ui-beats",
+    title: "New star on frameora",
     meta: "just now",
     tone: "text-amber-500",
   },

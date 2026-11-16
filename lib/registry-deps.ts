@@ -5,7 +5,7 @@
  * (which renders the docs) and `scripts/build-registry.ts` (which writes the
  * published registry) need this, and they used to carry a copy each. Two
  * copies was survivable while the rule was "skip anything starting with `@/`".
- * Blocks broke that: a block imports other UI Beats components, and those
+ * Blocks broke that: a block imports other Frameora components, and those
  * imports have to become real registry dependencies. A rule that subtle cannot
  * live in two places and stay the same in both.
  */
@@ -23,7 +23,7 @@ export interface SourceDependencies {
   dependencies: string[];
   /** shadcn registry items, by bare name, e.g. `utils`. */
   registryDependencies: string[];
-  /** Other UI Beats components this source composes, by name. */
+  /** Other Frameora components this source composes, by name. */
   beatsDependencies: string[];
 }
 

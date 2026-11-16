@@ -1,19 +1,19 @@
 /**
  * Single source of truth for anything that used to be a hardcoded URL string.
  *
- * The old code spelled the origin six different ways: `uibeats.com` in the
- * canonicals but `www.uibeats.com` in the sitemap, which split ranking
- * signals between two hosts. Everything now derives from `siteConfig.url`.
+ * The old code spelled the origin six different ways: the apex in the
+ * canonicals but `www.` in the sitemap, which split ranking signals between
+ * two hosts. Everything now derives from `siteConfig.url`.
  */
 export const siteConfig = {
-  name: "UI Beats",
-  title: "UI Beats · Animated React components you own",
+  name: "Frameora",
+  title: "Frameora · Animated React components you own",
   description:
     "Beautifully designed, animated React components built with React, TypeScript, Tailwind CSS and Motion. Copy, paste, or install with the shadcn CLI.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://uibeats.com").replace(
-    /\/$/,
-    "",
-  ),
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://officialudayshukla-code.github.io/frameora"
+  ).replace(/\/$/, ""),
   /*
    * The generated root card (`app/opengraph-image.tsx`), not a file in
    * `public/`. This is the inherited fallback for routes with no
@@ -25,18 +25,25 @@ export const siteConfig = {
    */
   ogImage: "/opengraph-image",
   author: {
-    name: "Nikhil Singh",
-    url: "https://nikhils4.vercel.app",
+    name: "Frameora",
+    url: "https://github.com/officialudayshukla-code",
   },
   links: {
-    github: "https://github.com/nikhils4/ui-beats",
-    issues: "https://github.com/nikhils4/ui-beats/issues",
+    github: "https://github.com/officialudayshukla-code/frameora",
+    issues: "https://github.com/officialudayshukla-code/frameora/issues",
     newIssue:
-      "https://github.com/nikhils4/ui-beats/issues/new?template=bug_report.md",
+      "https://github.com/officialudayshukla-code/frameora/issues/new?template=bug_report.md",
     newFeature:
-      "https://github.com/nikhils4/ui-beats/issues/new?template=feature_request.md",
+      "https://github.com/officialudayshukla-code/frameora/issues/new?template=feature_request.md",
   },
-  analyticsId: process.env.NEXT_PUBLIC_GA_ID ?? "G-E5FVREP9R1",
+  /*
+   * Opt-in: an empty id means no analytics script is rendered.
+   *
+   * The inherited default was the original project's Google Analytics
+   * property, which would have reported Frameora's traffic to somebody else.
+   * Set `NEXT_PUBLIC_GA_ID` to a property you own to switch it back on.
+   */
+  analyticsId: process.env.NEXT_PUBLIC_GA_ID ?? "",
 } as const;
 
 export type SiteConfig = typeof siteConfig;
@@ -44,4 +51,19 @@ export type SiteConfig = typeof siteConfig;
 /** Build an absolute URL from a site-relative path. */
 export function absoluteUrl(path = "/"): string {
   return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+/**
+ * Prefix a file in `public/` with the site's base path.
+ *
+ * GitHub Pages serves a project site from `/<repo>`, and `next/image` does not
+ * apply `basePath` to a string `src` — only `next/link` and `_next/` assets get
+ * it automatically — so the logo files are the one place the prefix has to be
+ * added by hand. `next.config.mjs` publishes the value as
+ * `NEXT_PUBLIC_BASE_PATH`, derived from the same constant it passes to Next, so
+ * `yarn dev` stays at the root and an export build gets `/frameora`.
+ */
+export function assetPath(path: string): string {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }

@@ -1,12 +1,12 @@
 /**
- * Fetching and searching the UI Beats catalogue.
+ * Fetching and searching the Frameora catalogue.
  *
  * The catalogue is the static `/r/components.json` the site emits at build
  * time, so this server has no backend of its own: it is a thin, cached client
  * over files that are already on the CDN.
  */
 
-const DEFAULT_ORIGIN = "https://uibeats.com";
+const DEFAULT_ORIGIN = "https://officialudayshukla-code.github.io/frameora";
 
 /** Point the server at a local `next dev` with `UIBEATS_URL=http://localhost:3000`. */
 export const ORIGIN = (process.env.UIBEATS_URL ?? DEFAULT_ORIGIN).replace(

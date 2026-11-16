@@ -3,7 +3,10 @@ import { getAllPosts } from "@/lib/blog";
 import { OG_CONTENT_TYPE, OG_SIZE, og } from "@/lib/og";
 import { OgCard } from "@/lib/og-card";
 
-export const alt = "UI Beats blog";
+// Required by `output: "export"`: image routes must be static to be emitted.
+export const dynamic = "force-static";
+
+export const alt = "Frameora blog";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -26,7 +29,7 @@ export default function OpengraphImage() {
           {`${count} post${count === 1 ? "" : "s"}`}
         </div>
       }
-      footerRight="uibeats.com/blogs"
+      footerRight="officialudayshukla-code.github.io/frameora/blogs"
     />,
     size,
   );

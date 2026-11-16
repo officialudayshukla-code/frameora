@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Installation",
   description:
-    "Set up your project for UI Beats components: Tailwind CSS, Motion, and the cn helper.",
+    "Set up your project for Frameora components: Tailwind CSS, Motion, and the cn helper.",
   alternates: { canonical: absoluteUrl("/docs/getting-started/installation") },
 };
 
@@ -31,7 +31,7 @@ export default function InstallationPage() {
 
       <DocsSection id="requirements" title="Requirements">
         <p className="mb-4 max-w-2xl leading-7">
-          UI Beats components are written for React 19 with Tailwind CSS v4 and
+          Frameora components are written for React 19 with Tailwind CSS v4 and
           Motion. Most components need only Motion; a few also use the{" "}
           <code className="rounded-md border bg-muted px-1.5 py-0.5 font-mono text-[0.85em]">
             cn
