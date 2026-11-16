@@ -58,7 +58,7 @@ export function CommandMenu({
           variant="outline"
           size="icon"
           onClick={() => setOpen(true)}
-          className="h-8 w-14 rounded-md"
+          className="h-8 w-14 rounded-sm"
           {...props}
         >
           <Search className="h-[1.2rem] w-[1.2rem]" />
@@ -68,7 +68,7 @@ export function CommandMenu({
         <Button
           variant="outline"
           className={cn(
-            "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64",
+            "relative h-8 w-full justify-start rounded-none border border-border bg-transparent text-muted-foreground transition-colors hover:border-foreground/60 hover:text-foreground sm:pr-12 md:w-40 lg:w-64",
           )}
           onClick={() => setOpen(true)}
           {...props}

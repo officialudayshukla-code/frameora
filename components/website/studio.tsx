@@ -67,10 +67,10 @@ function Chip({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "rounded-full border px-2.5 py-1 font-mono text-[11px] transition-colors",
+        "rounded-none border px-2.5 py-1 font-mono text-[11px] transition-colors",
         active
-          ? "border-brand/40 bg-brand-subtle text-brand"
-          : "border-border/70 text-muted-foreground hover:border-brand/30 hover:text-foreground",
+          ? "border-foreground/40 bg-foreground/5 text-foreground"
+          : "border-border/70 text-muted-foreground hover:border-foreground/60 hover:text-foreground",
       )}
     >
       {children}
@@ -207,7 +207,7 @@ export function Studio({ components, initial, className }: StudioProps) {
       {/* ---------------------------------------------------------------- */}
       <div className="flex min-w-0 flex-col gap-4 p-4 sm:p-6 lg:min-h-0 lg:p-6">
         {tab === "props" ? (
-          <div className="relative h-[26rem] w-full max-w-full shrink-0 overflow-hidden rounded-2xl border bg-card shadow-subtle lg:h-auto lg:min-h-0 lg:flex-1">
+          <div className="relative h-[26rem] w-full max-w-full shrink-0 overflow-hidden border bg-card lg:h-auto lg:min-h-0 lg:flex-1">
             {!component?.fullBleed ? (
               <div
                 aria-hidden="true"
@@ -248,7 +248,7 @@ export function Studio({ components, initial, className }: StudioProps) {
           </div>
         ) : (
           <div className="grid gap-4 lg:min-h-0 lg:flex-1 lg:grid-cols-2">
-            <div className="flex flex-col rounded-2xl border bg-card p-4 shadow-subtle lg:min-h-0">
+            <div className="flex flex-col border bg-card p-4 lg:min-h-0">
               <div className="mb-2 flex items-center justify-between gap-2">
                 <h2 className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Curve
@@ -277,7 +277,7 @@ export function Studio({ components, initial, className }: StudioProps) {
               </p>
             </div>
 
-            <div className="flex flex-col rounded-2xl border bg-card p-4 shadow-subtle lg:min-h-0 lg:overflow-y-auto">
+            <div className="flex flex-col border bg-card p-4 lg:min-h-0 lg:overflow-y-auto">
               <div className="mb-4 flex shrink-0 items-center justify-between gap-2">
                 <h2 className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Preview
@@ -392,7 +392,7 @@ export function Studio({ components, initial, className }: StudioProps) {
             <div
               role="tablist"
               aria-label="What to tune"
-              className="grid grid-cols-2 gap-1 rounded-lg bg-muted/60 p-1"
+              className="grid grid-cols-2 gap-1 rounded-none border border-border p-1"
             >
               {(["props", "motion"] as const).map((value) => (
                 <button
@@ -402,9 +402,9 @@ export function Studio({ components, initial, className }: StudioProps) {
                   aria-selected={tab === value}
                   onClick={() => setTab(value)}
                   className={cn(
-                    "rounded-md px-2 py-1.5 text-xs font-medium capitalize transition-colors",
+                    "rounded-none px-2 py-1.5 text-xs font-medium capitalize transition-colors",
                     tab === value
-                      ? "bg-background text-foreground shadow-subtle"
+                      ? "bg-background text-foreground"
                       : "text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -449,7 +449,7 @@ export function Studio({ components, initial, className }: StudioProps) {
                 <div
                   role="tablist"
                   aria-label="Easing type"
-                  className="grid grid-cols-2 gap-1 rounded-lg border p-1"
+                  className="grid grid-cols-2 gap-1 rounded-none border border-border p-1"
                 >
                   {(["tween", "spring"] as const).map((value) => (
                     <button
@@ -459,9 +459,9 @@ export function Studio({ components, initial, className }: StudioProps) {
                       aria-selected={mode === value}
                       onClick={() => setMode(value)}
                       className={cn(
-                        "rounded-md px-2 py-1.5 text-xs font-medium capitalize transition-colors",
+                        "rounded-none px-2 py-1.5 text-xs font-medium capitalize transition-colors",
                         mode === value
-                          ? "bg-brand-subtle text-brand"
+                          ? "border border-foreground/40 bg-foreground/5 text-foreground"
                           : "text-muted-foreground hover:text-foreground",
                       )}
                     >

@@ -37,7 +37,7 @@ function describe(prop: ComponentProp): DescribedProp {
 export function PropsTable({ props }: { props: ComponentProp[] }) {
   if (props.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed px-5 py-6 text-sm text-muted-foreground">
+      <p className="border border-dashed px-5 py-6 text-sm text-muted-foreground">
         This component takes no props. Drop it in and it works.
       </p>
     );
@@ -49,7 +49,7 @@ export function PropsTable({ props }: { props: ComponentProp[] }) {
   return (
     <div className="min-w-0">
       {/* The table scrolls inside this box rather than widening the page. */}
-      <div className="relative w-full max-w-full overflow-hidden rounded-xl border bg-card shadow-subtle">
+      <div className="relative w-full max-w-full overflow-hidden border bg-card">
         {/*
           On a phone the table is always wider than the screen, and a hard clip
           at the border gives no hint that the last two columns exist. The fade
@@ -79,7 +79,7 @@ export function PropsTable({ props }: { props: ComponentProp[] }) {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.prop} className="align-top">
-                <TableCell className="px-4 py-3.5 align-top font-mono text-xs font-medium text-brand">
+                <TableCell className="px-4 py-3.5 align-top font-mono text-xs font-medium text-foreground">
                   {row.prop}
                   {row.required ? (
                     <>
@@ -95,7 +95,7 @@ export function PropsTable({ props }: { props: ComponentProp[] }) {
                 </TableCell>
                 <TableCell className="px-4 py-3.5 align-top font-mono text-xs">
                   {row.hasDefault ? (
-                    <span className="rounded-md border bg-muted/60 px-1.5 py-0.5 break-words text-foreground/80">
+                    <span className="rounded-none border bg-muted/60 px-1.5 py-0.5 break-words text-foreground/80">
                       {row.defaultValue}
                     </span>
                   ) : (

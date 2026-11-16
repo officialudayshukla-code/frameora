@@ -70,8 +70,8 @@ export function McpInstallButtons({ className }: { className?: string }) {
         </a>
       </Button>
 
-      <div className="flex items-center gap-1 rounded-md border bg-muted/40 py-1 pr-1 pl-3">
-        <code className="font-mono text-xs text-muted-foreground">
+      <div className="flex items-center gap-1 rounded-sm border bg-muted/30 py-1 pr-1 pl-3">
+        <code className="font-mono text-[11px] text-muted-foreground">
           {claudeCodeCommand()}
         </code>
         <CopyButton

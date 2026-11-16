@@ -50,14 +50,14 @@ export function Footer() {
   // `bg-muted/20`), that margin rendered as a dark band of page background
   // sandwiched between two tinted blocks. Pages own their bottom spacing.
   return (
-    <footer className="border-t bg-muted/20">
-      <div className="mx-auto max-w-(--breakpoint-2xl) px-4 py-14 md:px-8">
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-(--breakpoint-2xl) px-4 py-16 md:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-display text-base font-bold tracking-tight">
+            <p className="font-display text-base font-semibold tracking-tight">
               {siteConfig.name}
             </p>
-            <p className="mt-2 max-w-56 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-56 text-[13px] leading-relaxed text-muted-foreground">
               Animated React components you can copy, paste, or install with the
               shadcn CLI.
             </p>
@@ -65,19 +65,17 @@ export function Footer() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase transition-colors hover:text-foreground"
             >
-              <GitHubIcon className="size-4" />
+              <GitHubIcon className="size-3.5" />
               GitHub
             </a>
           </div>
 
           {columns.map((column) => (
             <nav key={column.title} aria-label={column.title}>
-              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-                {column.title}
-              </p>
-              <ul className="mt-4 space-y-2.5">
+              <p className="label-mono">{column.title}</p>
+              <ul className="mt-5 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -85,7 +83,7 @@ export function Footer() {
                       {...("external" in link && link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-[13px] text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>
@@ -96,11 +94,11 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t pt-6 text-sm text-muted-foreground sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
           <p>
             Crafted by{" "}
             <a
-              className="font-medium text-foreground underline-offset-4 hover:underline"
+              className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
               target="_blank"
               rel="noopener noreferrer"
               href={siteConfig.author.url}
@@ -109,7 +107,7 @@ export function Footer() {
             </a>
             , for the web.
           </p>
-          <p>MIT Licensed</p>
+          <p className="font-mono tracking-[0.12em] uppercase">MIT Licensed</p>
         </div>
       </div>
     </footer>

@@ -32,7 +32,7 @@ export function SectionHeading({
       // Anchored jumps land with the heading pinned to the very top of the
       // viewport otherwise, with no context above it.
       className={cn(
-        "group scroll-mt-24 text-2xl font-semibold tracking-tight",
+        "group scroll-mt-24 text-2xl font-semibold tracking-[-0.025em]",
         className,
       )}
     >

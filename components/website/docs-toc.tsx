@@ -97,9 +97,7 @@ export function DocsToc() {
 
   return (
     <nav aria-label="On this page">
-      <p className="mb-3 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-        On this page
-      </p>
+      <p className="label-mono mb-3">On this page</p>
 
       <ul className="border-l border-border/70">
         {headings.map((heading) => {
@@ -116,7 +114,7 @@ export function DocsToc() {
                   "-ml-px block border-l-2 py-1.5 text-sm leading-snug transition-colors",
                   heading.level === 3 ? "pl-6" : "pl-3",
                   isActive
-                    ? "border-brand font-medium text-brand"
+                    ? "border-foreground font-medium text-foreground"
                     : "border-transparent text-muted-foreground hover:text-foreground",
                 )}
               >

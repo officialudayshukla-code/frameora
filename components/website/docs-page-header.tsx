@@ -30,23 +30,23 @@ export function DocsPageHeader({
   className,
 }: DocsPageHeaderProps) {
   return (
-    <header className={cn("mt-6 border-b border-border/60 pb-8", className)}>
-      {eyebrow ? <div className="mb-3">{eyebrow}</div> : null}
+    <header className={cn("mt-8 border-b border-border pb-8", className)}>
+      {eyebrow ? <div className="mb-4">{eyebrow}</div> : null}
 
       <div className="flex flex-wrap items-center gap-3">
-        <h1 className="scroll-m-20 text-3xl font-bold tracking-tighter text-balance sm:text-4xl">
+        <h1 className="scroll-m-20 text-3xl font-semibold tracking-[-0.035em] text-balance sm:text-4xl">
           {title}
         </h1>
         {badge}
       </div>
 
       {description ? (
-        <p className="mt-3 max-w-2xl text-base leading-relaxed text-balance text-muted-foreground">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-balance text-muted-foreground">
           {description}
         </p>
       ) : null}
 
-      {children ? <div className="mt-5">{children}</div> : null}
+      {children ? <div className="mt-6">{children}</div> : null}
     </header>
   );
 }

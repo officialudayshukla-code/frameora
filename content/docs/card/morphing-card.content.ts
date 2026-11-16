@@ -49,7 +49,7 @@ const MorphingCardContent: ComponentConfig = {
         "Time interval (in milliseconds) between shape transitions when autoPlay is true",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
   playground: {
     fixedSource: `  contents={[
     { shape: "rectangle", title: "Rectangle", description: "A clean rectangular shape." },

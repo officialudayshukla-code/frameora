@@ -435,7 +435,7 @@ export default async function ComponentDocsPage({ params }: PageProps) {
             </a>
             {entry.credits.kind === "tool"
               ? ", reviewed and maintained by Frameora."
-              : ". Thanks for the contribution."}
+              : "."}
           </p>
         ) : (
           /*

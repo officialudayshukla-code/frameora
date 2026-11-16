@@ -41,7 +41,7 @@ const ShimmerEffectContent: ComponentConfig = {
       description: "Additional CSS classes for styling",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
 };
 
 export default ShimmerEffectContent;

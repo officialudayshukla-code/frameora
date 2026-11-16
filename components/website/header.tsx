@@ -45,28 +45,25 @@ export function Header({ stars = 0 }: { stars?: number }) {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl"
+      className="sticky top-0 z-50 w-full border-b border-border bg-background"
     >
       {showScrollProgress ? <ScrollProgress /> : null}
-      <div className="mx-auto flex h-16 max-w-(--breakpoint-2xl) items-center gap-6 px-4 md:px-8">
+      <div className="mx-auto flex h-14 max-w-(--breakpoint-2xl) items-center gap-6 px-4 md:px-8">
         <Link className="flex shrink-0 items-center" href="/">
           <BrandLockup />
           <span className="sr-only">{siteConfig.name} home</span>
         </Link>
 
-        <nav
-          aria-label="Main"
-          className="hidden items-center gap-1 text-sm sm:flex"
-        >
+        <nav aria-label="Main" className="hidden items-center gap-5 sm:flex">
           {navLinks.map(({ href, label, match }) => (
             <Link
               key={href}
               href={href}
               className={cn(
-                "rounded-lg px-3 py-1.5 font-medium transition-colors",
+                "font-mono text-[11px] tracking-[0.14em] uppercase transition-colors",
                 pathname.startsWith(match)
-                  ? "bg-accent text-foreground"
-                  : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
+                  ? "text-foreground underline decoration-foreground underline-offset-[6px]"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               {label}
@@ -98,7 +95,7 @@ export function Header({ stars = 0 }: { stars?: number }) {
                     aria-hidden="true"
                     className="mx-0.5 h-3 w-px bg-border"
                   />
-                  <Star className="size-3 fill-amber-400 text-amber-400" />
+                  <Star className="size-3 fill-muted-foreground text-muted-foreground" />
                   <span className="tabular-nums">
                     {formatCompactNumber(stars)}
                   </span>

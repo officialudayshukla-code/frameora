@@ -74,6 +74,11 @@ interface TileProps {
   children: ReactNode;
 }
 
+/**
+ * A plate in the grid: the demo above, its caption below, a hairline around
+ * both. The caption used to sit on a gradient scrim over the demo; a ruled
+ * strip is quieter and never fights whatever the component paints.
+ */
 function Tile({
   href,
   label,
@@ -85,36 +90,34 @@ function Tile({
   return (
     <div
       className={cn(
-        "group relative isolate overflow-hidden rounded-2xl bg-muted/30 ring-1 ring-border/60 transition-all",
-        "hover:bg-muted/50 hover:ring-brand/30",
+        "group relative isolate flex flex-col overflow-hidden border border-border bg-card transition-colors",
+        "hover:border-foreground/30",
         className,
       )}
     >
       <InView
         className={cn(
-          "flex size-full items-center justify-center",
+          "flex size-full min-h-0 flex-1 items-center justify-center",
           !bleed && "p-6",
         )}
       >
         {children}
       </InView>
 
-      {/* Label sits over the demo rather than in a separate header strip, so
-          the component itself stays the focus. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-center justify-between bg-gradient-to-t from-background/90 to-transparent px-4 pt-8 pb-3 text-xs font-medium">
+      <div className="z-20 flex shrink-0 items-center justify-between gap-2 border-t border-border bg-card px-3 py-2 font-mono text-[10px] font-medium tracking-[0.14em] uppercase">
         {interactive ? (
           <Link
             href={href}
-            className="pointer-events-auto text-foreground/70 transition-colors hover:text-foreground"
+            className="pointer-events-auto text-muted-foreground transition-colors group-hover:text-foreground"
           >
             {label}
           </Link>
         ) : (
-          <span className="text-foreground/70 transition-colors group-hover:text-foreground">
+          <span className="text-muted-foreground transition-colors group-hover:text-foreground">
             {label}
           </span>
         )}
-        <ArrowUpRight className="size-3.5 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+        <ArrowUpRight className="size-3 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
       </div>
 
       {/* Non-interactive demos get the whole tile as one link. */}
@@ -334,27 +337,25 @@ function CompareAfter() {
 
 export function ComponentShowcase({ total }: { total: number }) {
   return (
-    <section className="relative border-t border-border/60">
-      <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-24 md:px-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <section className="relative border-t border-border">
+      <div className="mx-auto w-full max-w-(--breakpoint-2xl) px-4 py-20 md:px-8 md:py-24">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold tracking-[0.2em] text-brand uppercase">
-              The library
-            </p>
-            <h2 className="mt-3 max-w-xl text-3xl font-bold tracking-tighter text-balance sm:text-4xl">
+            <p className="label-mono">The library</p>
+            <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-4xl">
               Components that earn their place
             </h2>
-            <p className="mt-3 max-w-md text-sm text-muted-foreground">
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
               Everything below is the real component, running. Drag the deck,
               scratch the card, press the button.
             </p>
           </div>
           <Link
             href="/docs/getting-started/introduction"
-            className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="group inline-flex shrink-0 items-center gap-1.5 font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase transition-colors hover:text-foreground"
           >
             All {total} components
-            <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
@@ -387,7 +388,7 @@ export function ComponentShowcase({ total }: { total: number }) {
                 height={0.92}
               />
               <div className="relative z-10 flex size-full items-center justify-center pb-6">
-                <span className="bg-gradient-to-b from-foreground to-foreground/40 bg-clip-text text-4xl font-bold tracking-tighter text-transparent">
+                <span className="text-4xl font-semibold tracking-[-0.04em] text-foreground">
                   Ship it
                 </span>
               </div>

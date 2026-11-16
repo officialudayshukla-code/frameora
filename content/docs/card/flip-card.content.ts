@@ -48,7 +48,7 @@ const FlipCardContent: ComponentConfig = {
       description: "Event that triggers the flip animation",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
   playground: {
     fixedSource: `  frontContent={{ title: "Discover", subtitle: "Hover to learn more" }}
   backContent={{

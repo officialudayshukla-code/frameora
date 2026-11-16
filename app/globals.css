@@ -7,79 +7,83 @@
 /* ---------------------------------------------------------------------------
    Design tokens.
 
-   Authored in oklch so light and dark stay perceptually matched: the same
-   lightness number means the same apparent brightness across hues, which a
-   hex/hsl palette cannot promise. The neutrals carry a small amount of chroma
-   on the brand hue (285) so greys feel related to the accent rather than dead.
+   A monochrome editorial palette: ink on paper in light, paper on ink in dark,
+   with hairlines doing the work that shadows used to. Authored in oklch so the
+   two themes stay perceptually matched — the same lightness number means the
+   same apparent brightness in both.
+
+   The neutrals carry zero chroma on purpose. The only colour on the site comes
+   from the components themselves, which keeps the frame quiet and makes the
+   library the loudest thing on any page.
 --------------------------------------------------------------------------- */
 :root {
-  --radius: 0.75rem;
+  /* Sharp by default. Everything derived from this stays within 0–6px. */
+  --radius: 0.25rem;
 
-  /* Brand: an electric violet, used for primary actions, focus and accents. */
+  /*
+   * Component accents. These are the tokens the shipped components read from
+   * `var(--brand)` and `var(--accent-pink)`; the site chrome deliberately does
+   * not use them, so the palette here is the components' own.
+   */
   --brand: oklch(0.55 0.23 285);
   --brand-foreground: oklch(0.985 0.002 285);
   --brand-muted: oklch(0.95 0.03 285);
   --brand-subtle: oklch(0.97 0.015 285);
 
-  /* Secondary accent, used only for gradients and highlights. */
   --accent-cyan: oklch(0.72 0.14 210);
   --accent-pink: oklch(0.68 0.2 355);
 
-  --background: oklch(0.994 0.002 285);
-  --foreground: oklch(0.19 0.015 285);
+  /* Paper. */
+  --background: oklch(0.988 0 0);
+  --foreground: oklch(0.16 0 0);
 
   --card: oklch(1 0 0);
   --card-foreground: var(--foreground);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--foreground);
 
-  --primary: var(--brand);
-  --primary-foreground: var(--brand-foreground);
+  /* Primary is ink: the one emphatic fill in the system. */
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
 
-  --secondary: oklch(0.965 0.005 285);
-  --secondary-foreground: oklch(0.28 0.02 285);
+  --secondary: oklch(0.962 0 0);
+  --secondary-foreground: oklch(0.2 0 0);
 
-  --muted: oklch(0.965 0.005 285);
-  --muted-foreground: oklch(0.53 0.02 285);
+  --muted: oklch(0.958 0 0);
+  --muted-foreground: oklch(0.47 0 0);
 
-  --accent: oklch(0.955 0.012 285);
-  --accent-foreground: oklch(0.28 0.04 285);
+  --accent: oklch(0.955 0 0);
+  --accent-foreground: oklch(0.2 0 0);
 
-  --destructive: oklch(0.58 0.23 27);
-  --destructive-foreground: oklch(0.985 0.002 285);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.99 0 0);
 
-  --success: oklch(0.62 0.16 155);
-  --warning: oklch(0.75 0.16 75);
+  --success: oklch(0.55 0.12 155);
+  --warning: oklch(0.7 0.13 80);
 
-  --border: oklch(0.915 0.006 285);
-  --input: oklch(0.9 0.008 285);
-  --ring: var(--brand);
+  --border: oklch(0.898 0 0);
+  --input: oklch(0.87 0 0);
+  --ring: oklch(0.16 0 0);
 
-  --chart-1: oklch(0.55 0.23 285);
-  --chart-2: oklch(0.68 0.15 200);
-  --chart-3: oklch(0.7 0.18 45);
-  --chart-4: oklch(0.65 0.2 350);
-  --chart-5: oklch(0.62 0.16 155);
+  --chart-1: oklch(0.2 0 0);
+  --chart-2: oklch(0.4 0 0);
+  --chart-3: oklch(0.55 0 0);
+  --chart-4: oklch(0.7 0 0);
+  --chart-5: oklch(0.85 0 0);
 
-  --sidebar: oklch(0.978 0.004 285);
-  --sidebar-foreground: oklch(0.28 0.015 285);
-  --sidebar-primary: var(--brand);
-  --sidebar-primary-foreground: var(--brand-foreground);
-  --sidebar-accent: oklch(0.945 0.015 285);
-  --sidebar-accent-foreground: oklch(0.25 0.04 285);
-  --sidebar-border: oklch(0.915 0.006 285);
-  --sidebar-ring: var(--brand);
+  --sidebar: oklch(0.975 0 0);
+  --sidebar-foreground: oklch(0.22 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.94 0 0);
+  --sidebar-accent-foreground: oklch(0.16 0 0);
+  --sidebar-border: oklch(0.898 0 0);
+  --sidebar-ring: var(--ring);
 
-  /* Layered shadows. A single large blur reads as fog; three tight layers
-     read as an object sitting above a surface. */
-  --shadow-subtle:
-    0 1px 2px -1px oklch(0.19 0.015 285 / 0.08),
-    0 1px 3px oklch(0.19 0.015 285 / 0.06);
-  --shadow-raised:
-    0 1px 2px -1px oklch(0.19 0.015 285 / 0.1),
-    0 4px 12px -2px oklch(0.19 0.015 285 / 0.08),
-    0 12px 32px -8px oklch(0.19 0.015 285 / 0.06);
-  --shadow-brand: 0 8px 32px -8px oklch(0.55 0.23 285 / 0.35);
+  /* Structure comes from borders now; shadows are only a hair of lift. */
+  --shadow-subtle: 0 1px 1px oklch(0.16 0 0 / 0.04);
+  --shadow-raised: 0 1px 2px oklch(0.16 0 0 / 0.06);
+  --shadow-brand: none;
 }
 
 .dark {
@@ -91,57 +95,55 @@
   --accent-cyan: oklch(0.78 0.13 205);
   --accent-pink: oklch(0.74 0.18 355);
 
-  --background: oklch(0.155 0.012 285);
-  --foreground: oklch(0.965 0.004 285);
+  /* Ink, with a touch of warmth so it reads as paper-black, not screen-black. */
+  --background: oklch(0.152 0 0);
+  --foreground: oklch(0.955 0 0);
 
-  --card: oklch(0.195 0.015 285);
+  --card: oklch(0.178 0 0);
   --card-foreground: var(--foreground);
-  --popover: oklch(0.205 0.016 285);
+  --popover: oklch(0.19 0 0);
   --popover-foreground: var(--foreground);
 
-  --primary: var(--brand);
-  --primary-foreground: var(--brand-foreground);
+  --primary: var(--foreground);
+  --primary-foreground: oklch(0.14 0 0);
 
-  --secondary: oklch(0.25 0.016 285);
-  --secondary-foreground: oklch(0.95 0.004 285);
+  --secondary: oklch(0.235 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
 
-  --muted: oklch(0.245 0.014 285);
-  --muted-foreground: oklch(0.7 0.018 285);
+  --muted: oklch(0.225 0 0);
+  --muted-foreground: oklch(0.68 0 0);
 
-  --accent: oklch(0.28 0.03 285);
-  --accent-foreground: oklch(0.96 0.006 285);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.96 0 0);
 
-  --destructive: oklch(0.68 0.2 25);
-  --destructive-foreground: oklch(0.16 0.02 285);
+  --destructive: oklch(0.66 0.18 25);
+  --destructive-foreground: oklch(0.14 0 0);
 
-  --success: oklch(0.72 0.16 155);
-  --warning: oklch(0.8 0.15 80);
+  --success: oklch(0.7 0.13 155);
+  --warning: oklch(0.78 0.13 80);
 
-  --border: oklch(1 0 0 / 9%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: var(--brand);
+  --border: oklch(1 0 0 / 0.11);
+  --input: oklch(1 0 0 / 0.16);
+  --ring: oklch(0.9 0 0);
 
-  --chart-1: oklch(0.7 0.19 288);
-  --chart-2: oklch(0.75 0.14 200);
-  --chart-3: oklch(0.76 0.16 55);
-  --chart-4: oklch(0.72 0.18 350);
-  --chart-5: oklch(0.72 0.16 155);
+  --chart-1: oklch(0.95 0 0);
+  --chart-2: oklch(0.8 0 0);
+  --chart-3: oklch(0.65 0 0);
+  --chart-4: oklch(0.5 0 0);
+  --chart-5: oklch(0.36 0 0);
 
-  --sidebar: oklch(0.175 0.014 285);
-  --sidebar-foreground: oklch(0.9 0.006 285);
-  --sidebar-primary: var(--brand);
-  --sidebar-primary-foreground: var(--brand-foreground);
-  --sidebar-accent: oklch(0.27 0.03 285);
-  --sidebar-accent-foreground: oklch(0.97 0.006 285);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: var(--brand);
+  --sidebar: oklch(0.14 0 0);
+  --sidebar-foreground: oklch(0.88 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.235 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(1 0 0 / 0.1);
+  --sidebar-ring: var(--ring);
 
-  --shadow-subtle:
-    0 1px 2px -1px oklch(0 0 0 / 0.5), 0 1px 3px oklch(0 0 0 / 0.4);
-  --shadow-raised:
-    0 1px 2px -1px oklch(0 0 0 / 0.5), 0 4px 12px -2px oklch(0 0 0 / 0.45),
-    0 12px 32px -8px oklch(0 0 0 / 0.4);
-  --shadow-brand: 0 8px 32px -8px oklch(0.7 0.19 288 / 0.45);
+  --shadow-subtle: 0 1px 1px oklch(0 0 0 / 0.5);
+  --shadow-raised: 0 1px 2px oklch(0 0 0 / 0.6);
+  --shadow-brand: none;
 }
 
 @theme inline {
@@ -196,11 +198,11 @@
     var(--font-bricolage), var(--font-instrument-sans), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
 
   --shadow-subtle: var(--shadow-subtle);
   --shadow-raised: var(--shadow-raised);
@@ -266,8 +268,8 @@
     @apply bg-background font-sans text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Slightly tighter default tracking suits Instrument Sans at UI sizes. */
-    letter-spacing: -0.011em;
+    /* Instrument Sans wants a touch of negative tracking at UI sizes. */
+    letter-spacing: -0.008em;
   }
 
   h1,
@@ -275,18 +277,21 @@
   h3,
   h4 {
     @apply font-display;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
 
-  /* One consistent, brand-tinted focus ring everywhere. */
+  /*
+   * Focus is an outline rather than a ring: it follows the element's own
+   * corners, works on unrounded elements, and does not repaint the border.
+   */
   :focus-visible {
-    @apply ring-2 ring-ring ring-offset-2 ring-offset-background outline-none;
-    border-radius: var(--radius-sm);
+    @apply outline-2 outline-offset-2 outline-ring;
+    outline-style: solid;
   }
 
   ::selection {
-    background: var(--brand-muted);
-    color: var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
   }
 
   /* Hide scrollbar chrome without removing scrollability or keyboard access. */
@@ -312,28 +317,35 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Reusable surface + background treatments.
+   Editorial primitives, shared by the site chrome.
+
+   These exist so the same label, rule and section rhythm are not re-invented
+   per component. They are deliberately plain: the components supply the colour.
 --------------------------------------------------------------------------- */
-/*
- * Gradient text.
- *
- * Careful with line-height: the glyphs are painted by this element's
- * background, which stops at the padding box. Any part of a glyph outside that
- * box has nothing painting it and disappears, so a `leading` under about 1.05
- * silently eats descenders (g, y, p, q). Give the line room, and add a little
- * padding-bottom on very tight display sizes.
- */
-@utility text-gradient {
-  background-image: linear-gradient(
-    100deg,
-    var(--foreground) 0%,
-    var(--foreground) 30%,
-    var(--brand) 65%,
-    var(--accent-pink) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+@layer components {
+  /* The small uppercase mono line used above headings and in footers. */
+  .label-mono {
+    @apply font-mono text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase;
+  }
+
+  /* A hairline rule that spans its container. */
+  .rule {
+    @apply border-t border-border;
+  }
+
+  /* Section shell: one max width, one horizontal rhythm, top rule. */
+  .section-shell {
+    @apply mx-auto w-full max-w-(--breakpoint-2xl) px-4 md:px-8;
+  }
+
+  .section-head {
+    @apply flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-t border-border py-4;
+  }
+
+  /* Inline link in running text: underlined, not coloured. */
+  .link-ink {
+    @apply font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground;
+  }
 }
 
 /* A faint grid. Two repeating gradients rather than an image keeps it crisp
@@ -351,9 +363,28 @@
 }
 
 @utility surface {
-  background: color-mix(in oklch, var(--card) 82%, transparent);
-  backdrop-filter: blur(12px);
+  background: var(--card);
   border: 1px solid var(--border);
+}
+
+/*
+ * Ink gradient.
+ *
+ * Still a gradient rather than flat type, but now it runs foreground into
+ * muted-foreground, so it reads as a printed fade rather than a brand wash.
+ * Keep the same line-height caveat as any background-clip text: glyphs outside
+ * the padding box lose their paint.
+ */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--foreground) 0%,
+    var(--foreground) 55%,
+    var(--muted-foreground) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* ---------------------------------------------------------------------------
@@ -386,11 +417,11 @@
   }
 
   .mdx-content ul {
-    @apply mb-6 list-outside list-disc space-y-2 pl-6 marker:text-brand;
+    @apply mb-6 list-outside list-disc space-y-2 pl-6 marker:text-muted-foreground;
   }
 
   .mdx-content ol {
-    @apply mb-6 list-outside list-decimal space-y-2 pl-6 marker:text-brand;
+    @apply mb-6 list-outside list-decimal space-y-2 pl-6 marker:text-muted-foreground;
   }
 
   .mdx-content li {
@@ -398,19 +429,19 @@
   }
 
   .mdx-content blockquote {
-    @apply my-6 rounded-r-lg border-l-2 border-brand bg-brand-subtle/50 py-3 pr-4 pl-5 text-foreground/80 italic;
+    @apply my-6 border-l-2 border-foreground py-1 pr-4 pl-5 text-foreground/70 italic;
   }
 
   .mdx-content :not(pre) > code {
-    @apply rounded-md border bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-brand;
+    @apply border bg-muted/60 px-1.5 py-0.5 font-mono text-[0.85em] text-foreground;
   }
 
   .mdx-content img {
-    @apply mx-auto my-8 rounded-xl border;
+    @apply mx-auto my-8 border;
   }
 
   .mdx-content a {
-    @apply font-medium text-brand underline decoration-brand/30 underline-offset-4 transition-colors hover:decoration-brand;
+    @apply font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground;
   }
 
   .mdx-content hr {
@@ -418,7 +449,7 @@
   }
 
   figure[data-rehype-pretty-code-figure] pre {
-    @apply my-6 overflow-x-auto rounded-xl border bg-card py-4 text-sm;
+    @apply my-6 overflow-x-auto border bg-card py-4 text-sm;
   }
 
   figure[data-rehype-pretty-code-figure] code {
@@ -430,15 +461,15 @@
   }
 
   figure[data-rehype-pretty-code-figure] [data-highlighted-line] {
-    @apply border-brand bg-brand/10;
+    @apply border-foreground bg-foreground/5;
   }
 
   [data-rehype-pretty-code-title] {
-    @apply rounded-t-xl border border-b-0 bg-muted px-4 py-2 font-mono text-xs text-muted-foreground;
+    @apply border border-b-0 bg-muted px-4 py-2 font-mono text-xs text-muted-foreground;
   }
 
   [data-rehype-pretty-code-title] + pre {
-    @apply mt-0 rounded-t-none;
+    @apply mt-0;
   }
 
   code[data-theme*=" "],

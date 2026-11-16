@@ -36,7 +36,7 @@ const GravityTextSwapContent: ComponentConfig = {
       description: "Additional CSS classes for styling",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
   playground: {
     fixedSource: '  textArray={["Code", "Build", "Sleep", "Repeat"]}',
   },

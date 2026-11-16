@@ -40,7 +40,6 @@ function steps(installPath: string) {
  * `border-beam.usage.tsx` was the obvious thing and the wrong one: two thirds
  * of it is the card's own markup, so the section's tallest element was a
  * scrolling wall of Tailwind sitting under the words "that is the whole API".
- * What the reader owns is a component that takes children and needs no props.
  *
  * No live preview here, deliberately: Border Beam already runs in a tile in
  * the showcase above, and a second copy of it cost this section a 18rem panel
@@ -74,14 +73,12 @@ export async function OwnTheCode() {
   ].join("\n");
 
   return (
-    <section className="border-t border-border/60">
-      <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-20 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
+    <section className="border-t border-border">
+      <div className="mx-auto w-full max-w-(--breakpoint-2xl) px-4 py-20 md:px-8 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
           <div className="max-w-md">
-            <p className="text-xs font-semibold tracking-[0.2em] text-brand uppercase">
-              Copy, paste, own
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tighter text-balance sm:text-4xl">
+            <p className="label-mono">Copy, paste, own</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-4xl">
               Every component is a file in your project
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -91,10 +88,13 @@ export async function OwnTheCode() {
 
             {/* Numbered by a mono index rather than a filled circle: three
                 short lines should read as a caption, not a feature list. */}
-            <ol className="mt-8 grid gap-3">
+            <ol className="mt-9 border-t border-border">
               {steps(installedAt).map((step, index) => (
-                <li key={step.title} className="flex gap-3 text-sm">
-                  <span className="pt-px font-mono text-xs text-brand/70">
+                <li
+                  key={step.title}
+                  className="flex gap-4 border-b border-border py-3.5 text-sm"
+                >
+                  <span className="pt-px font-mono text-[11px] text-muted-foreground">
                     0{index + 1}
                   </span>
                   <p className="leading-relaxed text-muted-foreground">
@@ -118,7 +118,7 @@ export async function OwnTheCode() {
               That is the whole API.{" "}
               <Link
                 href={entry.href}
-                className="inline-flex items-center gap-1 font-medium text-brand underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
               >
                 Read the props
                 <ArrowRight className="size-3.5" />

@@ -54,7 +54,7 @@ function Field({ htmlFor, label, description, hint, children }: FieldProps) {
 }
 
 const inputClass =
-  "w-full rounded-lg border bg-background px-2.5 py-1.5 font-mono text-xs shadow-subtle outline-none transition-colors focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/30";
+  "w-full rounded-sm border bg-background px-2.5 py-1.5 font-mono text-xs outline-none transition-colors hover:border-foreground/60 focus-visible:border-foreground";
 
 interface ControlRowProps {
   control: PlaygroundControl;
@@ -97,7 +97,7 @@ function ControlRow({ control, value, onChange }: ControlRowProps) {
               type="checkbox"
               checked={Boolean(value)}
               onChange={(event) => onChange(event.target.checked)}
-              className="size-4 shrink-0 accent-brand"
+              className="size-4 shrink-0 accent-foreground/60"
             />
           </label>
           <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
@@ -122,7 +122,7 @@ function ControlRow({ control, value, onChange }: ControlRowProps) {
             step={control.step}
             value={Number(value)}
             onChange={(event) => onChange(Number(event.target.value))}
-            className="w-full accent-brand"
+            className="w-full accent-foreground/60"
           />
         </Field>
       );

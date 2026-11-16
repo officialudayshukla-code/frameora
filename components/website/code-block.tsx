@@ -32,19 +32,19 @@ export async function CodeBlock({
       className={cn(
         // `max-w-full` + the scroll container below keep long lines inside the
         // column instead of widening the whole docs layout.
-        "group relative my-4 w-full max-w-full overflow-hidden rounded-xl border bg-card shadow-subtle",
+        "group relative my-4 w-full max-w-full overflow-hidden border bg-card",
         className,
       )}
     >
       {title ? (
-        <figcaption className="flex items-center gap-2 border-b bg-muted/50 px-4 py-2.5">
+        <figcaption className="flex items-center gap-2 border-b bg-muted/30 px-4 py-2">
           {/* Three dots read as "this is a file", cheaper than an icon set. */}
           <span aria-hidden="true" className="flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-destructive/40" />
-            <span className="size-2.5 rounded-full bg-warning/40" />
-            <span className="size-2.5 rounded-full bg-success/40" />
+            <span className="size-2.5 rounded-none bg-destructive/40" />
+            <span className="size-2.5 rounded-none bg-warning/40" />
+            <span className="size-2.5 rounded-none bg-success/40" />
           </span>
-          <span className="ml-1 font-mono text-xs text-muted-foreground">
+          <span className="ml-1 font-mono text-[11px] text-muted-foreground">
             {title}
           </span>
         </figcaption>

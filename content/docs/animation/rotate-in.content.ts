@@ -47,7 +47,7 @@ const RotateInContent: ComponentConfig = {
       description: "Whether to trigger the animation only once",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
   playground: {
     childrenSource:
       '  <p className="text-md md:text-lg">This content will rotate in when visible</p>',

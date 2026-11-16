@@ -37,7 +37,7 @@ const GradientFlowContent: ComponentConfig = {
       description: "Additional CSS classes for styling",
     },
   ],
-  credits: { name: "Michael", url: "https://github.com/lappemic" },
+  credits: { name: "Uday", url: "https://github.com/lappemic" },
   playground: {
     childrenSource: `  <div className="text-md text-white md:text-lg">
     Flowing Gradient Background

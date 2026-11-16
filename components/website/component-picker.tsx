@@ -81,13 +81,12 @@ export function ComponentPicker({
           // attributes this element does not own.
           aria-label="Choose a component"
           className={cn(
-            "flex w-full items-center gap-2 rounded-lg border bg-background px-3 py-2 text-left text-sm shadow-subtle transition-colors outline-none",
-            "hover:border-brand/40 focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/30",
+            "flex w-full items-center gap-2 rounded-none border bg-background px-3 py-2 text-left font-medium text-muted-foreground transition-colors outline-none hover:border-foreground/60 focus-visible:border-foreground focus-visible:text-foreground",
             className,
           )}
         >
           {SelectedIcon ? (
-            <SelectedIcon className="size-4 shrink-0 text-brand" />
+            <SelectedIcon className="size-4 shrink-0 text-muted-foreground/80" />
           ) : null}
           <span className="min-w-0 flex-1 truncate font-medium">
             {selected?.title ?? "Choose a component"}
@@ -140,7 +139,7 @@ export function ComponentPicker({
                           {item.title}
                         </span>
                         {itemKey === value ? (
-                          <Check className="size-3.5 shrink-0 text-brand" />
+                          <Check className="size-3.5 shrink-0 text-foreground" />
                         ) : null}
                       </CommandItem>
                     );

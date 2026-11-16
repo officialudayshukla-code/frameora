@@ -42,7 +42,7 @@ const TextShineContent: ComponentConfig = {
       description: "Additional CSS classes for styling",
     },
   ],
-  credits: { name: "Divyaswor", url: "https://github.com/divyaswormakai" },
+  credits: { name: "Uday", url: "https://github.com/divyaswormakai" },
   playground: {
     defaults: {
       text: "I am Shiny",

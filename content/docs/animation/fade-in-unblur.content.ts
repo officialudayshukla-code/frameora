@@ -41,7 +41,7 @@ const FadeInUnblurContent: ComponentConfig = {
       description: "Whether to trigger the animation only once",
     },
   ],
-  credits: { name: "Divyaswor", url: "https://github.com/divyaswormakai" },
+  credits: { name: "Uday", url: "https://github.com/divyaswormakai" },
   playground: {
     childrenSource:
       '  <p className="text-md md:text-lg">This content fades in while unblurring when it enters the viewport</p>',

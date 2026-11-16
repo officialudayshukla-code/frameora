@@ -25,7 +25,7 @@ export const siteConfig = {
    */
   ogImage: "/opengraph-image",
   author: {
-    name: "Frameora",
+    name: "Uday",
     url: "https://github.com/officialudayshukla-code",
   },
   links: {

@@ -130,14 +130,14 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                 }}
                 placeholder="Filter components"
                 aria-label="Filter components"
-                className="h-9 rounded-lg pr-8 pl-8 text-xs shadow-none"
+                className="h-9 rounded-none pr-8 pl-8 text-xs shadow-none"
               />
               {query ? (
                 <button
                   type="button"
                   onClick={() => setQuery("")}
                   aria-label="Clear filter"
-                  className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1 text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-foreground"
+                  className="absolute top-1/2 right-2 -translate-y-1/2 rounded-sm p-1 text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-foreground"
                 >
                   <X className="size-3.5" />
                 </button>
@@ -166,7 +166,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="text-xs font-medium text-brand transition-opacity hover:opacity-80"
+              className="text-xs font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
             >
               Clear filter
             </button>
@@ -206,7 +206,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                       */}
                       <SidebarMenuButton
                         tooltip={title}
-                        className="h-8 text-[11px] font-semibold tracking-wider text-muted-foreground uppercase hover:text-foreground [&>svg]:size-3.5 [&>svg]:text-muted-foreground"
+                        className="h-8 font-mono text-[10px] font-medium tracking-[0.16em] text-muted-foreground uppercase hover:text-foreground [&>svg]:size-3.5 [&>svg]:text-muted-foreground"
                         onClick={() => {
                           // Clicking an icon in the collapsed rail expands the
                           // sidebar. It no longer collapses every other
@@ -223,7 +223,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                         {Icon && <Icon />}
                         {title}
                         <span className="ml-auto flex items-center gap-1">
-                          <span className="rounded-full bg-sidebar-accent px-1.5 py-0.5 text-[10px] leading-none font-medium text-muted-foreground tabular-nums">
+                          <span className="rounded-none bg-sidebar-accent px-1.5 py-0.5 font-mono text-[10px] leading-none font-medium text-muted-foreground tabular-nums">
                             {subItems.length}
                           </span>
                           <ChevronDown className="size-3.5 shrink-0 opacity-50 transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -238,7 +238,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                           <SidebarMenuSubButton
                             asChild
                             isActive={pathname === path}
-                            className="text-xs transition-colors data-[active=true]:bg-brand/10 data-[active=true]:font-medium data-[active=true]:text-brand"
+                            className="text-xs transition-colors data-[active=true]:bg-foreground/[0.06] data-[active=true]:font-medium data-[active=true]:text-foreground"
                           >
                             <Link
                               href={path}
@@ -248,7 +248,7 @@ export const SideNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                               {isNew && (
                                 <Badge
                                   variant="outline"
-                                  className="shrink-0 border-brand/30 px-1.5 py-0 text-[10px] font-medium text-brand"
+                                  className="shrink-0 border-border px-1.5 py-0 text-[10px] text-muted-foreground"
                                 >
                                   New
                                 </Badge>

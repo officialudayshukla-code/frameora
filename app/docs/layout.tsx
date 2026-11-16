@@ -62,9 +62,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
                 <DocsToc />
 
                 <nav aria-label="Docs resources">
-                  <p className="mb-3 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-                    Resources
-                  </p>
+                  <p className="label-mono mb-3">Resources</p>
                   <ul className="space-y-1">
                     {asideLinks.map(({ href, label, icon: Icon, external }) => (
                       <li key={href}>
@@ -87,9 +85,9 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
                             headings and the labels on the same line as the
                             contents links.
                           */
-                          className="group flex items-center rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-muted/60 hover:text-foreground"
+                          className="group flex items-center rounded-none px-3 py-2 text-[13px] text-muted-foreground transition-colors duration-200 hover:bg-foreground/[0.04] hover:text-foreground"
                         >
-                          <Icon className="mr-2.5 size-4 text-muted-foreground/70 transition-colors duration-200 group-hover:text-brand" />
+                          <Icon className="mr-2.5 size-4 text-muted-foreground/70 transition-colors duration-200 group-hover:text-foreground" />
                           {label}
                         </Link>
                       </li>
