@@ -1,16 +1,16 @@
-# Contributing to UI Beats
+# Contributing to Frameora
 
 Thanks for taking the time to contribute. This document covers the practical
 details; the same guide in prose lives at
-[uibeats.com/docs/getting-started/contribute](https://uibeats.com/docs/getting-started/contribute).
+[officialudayshukla-code.github.io/frameora/docs/getting-started/contribute](https://officialudayshukla-code.github.io/frameora/docs/getting-started/contribute).
 
 ## Getting set up
 
 Requires **Node 20.9+** and Yarn 4 via Corepack.
 
 ```bash
-git clone https://github.com/<you>/ui-beats.git
-cd ui-beats
+git clone https://github.com/<you>/frameora.git
+cd frameora
 corepack enable
 yarn install
 yarn dev
@@ -118,7 +118,7 @@ export default FlipClockContent;
   catalogue text, not just page copy. Lead with what the component does.
 - **`title`** carries an SEO budget: pages are titled
   `React <Title> <category noun>` and `tests/seo.test.ts` requires the result
-  plus `" · UI Beats"` to fit in 60 characters, to be unique across the library,
+  plus `" · Frameora"` to fit in 60 characters, to be unique across the library,
   and not to repeat a word (`Flip Card` + `Card Component` must not become
   `Flip Card Card Component`).
 - **`addedAt`** is `YYYY-MM-DD`. `isNew` is derived from it and expires on its
@@ -187,7 +187,7 @@ It has no scaffolder and three differences from a component:
 
 - It installs to `components/blocks/` as `registry:block`, not to
   `components/ui/`.
-- It may import other UI Beats components from
+- It may import other Frameora components from
   `@/components/demo/<category>/<name>`, and those become registry dependencies:
   installing the block installs its parts. The build fails if a block imports
   something the registry does not document.

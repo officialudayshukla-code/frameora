@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="https://uibeats.com/brand-mark.png" alt="UI Beats" width="72" height="72" />
+<img src="./frameora-wordmark.png" alt="Frameora" height="28" />
 
-# UI Beats
+# Frameora
 
 **Supercharge your UI.**
 
 Beautifully designed, animated React components you can copy, paste, or install with the shadcn CLI.
 
-[**Documentation**](https://uibeats.com/docs) · [**Components**](https://uibeats.com/docs/getting-started/introduction) · [**Blog**](https://uibeats.com/blogs)
+[**Documentation**](https://officialudayshukla-code.github.io/frameora/docs) · [**Components**](https://officialudayshukla-code.github.io/frameora/docs/getting-started/introduction) · [**Blog**](https://officialudayshukla-code.github.io/frameora/blogs)
 
-[![CI](https://github.com/nikhils4/ui-beats/actions/workflows/ci.yml/badge.svg)](https://github.com/nikhils4/ui-beats/actions/workflows/ci.yml)
+[![CI](https://github.com/officialudayshukla-code/frameora/actions/workflows/ci.yml/badge.svg)](https://github.com/officialudayshukla-code/frameora/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-149eca?logo=react)](https://react.dev)
@@ -22,17 +22,17 @@ Beautifully designed, animated React components you can copy, paste, or install 
 
 ## What this is
 
-UI Beats is a collection of animated React components built with **TypeScript**, **Tailwind CSS** and **Motion**.
+Frameora is a collection of animated React components built with **TypeScript**, **Tailwind CSS** and **Motion**.
 
 It is **not** a package you install and import from. You own the code: add a component, then change whatever you like. No version pinning, no wrapper APIs, no waiting on a maintainer to expose a prop.
 
 ## Install a component
 
 ```bash
-npx shadcn@latest add https://uibeats.com/r/flip-card.json
+npx shadcn@latest add https://officialudayshukla-code.github.io/frameora/r/flip-card.json
 ```
 
-The CLI writes the component into your project and installs the npm packages it needs. Every component page lists its own command, and the full index lives at [`/r/registry.json`](https://uibeats.com/r/registry.json).
+The CLI writes the component into your project and installs the npm packages it needs. Every component page lists its own command, and the full index lives at [`/r/registry.json`](https://officialudayshukla-code.github.io/frameora/r/registry.json).
 
 Prefer to copy and paste? Every component page has the full source under **Installation → Manual**.
 
@@ -44,7 +44,7 @@ Most components get picked by whatever is writing the code. The MCP server puts 
 claude mcp add uibeats -- npx -y @uibeats/mcp
 ```
 
-It exposes four tools: `search_components`, `get_component`, `list_components` and `get_install_command`. See [`packages/mcp`](packages/mcp) or the [MCP docs](https://uibeats.com/docs/getting-started/mcp).
+It exposes four tools: `search_components`, `get_component`, `list_components` and `get_install_command`. See [`packages/mcp`](packages/mcp) or the [MCP docs](https://officialudayshukla-code.github.io/frameora/docs/getting-started/mcp).
 
 For agents that only fetch URLs, the same content is served as plain text:
 
@@ -61,7 +61,7 @@ Every component has a **playground** at `/playground/<category>/<name>`: the pro
 
 The controls are derived from the same `props` array that renders the documentation table, so a control can never describe a prop the docs do not.
 
-Alongside it, **[Motion Studio](https://uibeats.com/motion-studio)**, a cubic-bezier and spring editor. Drag the curve or tune stiffness, damping and mass, watch it run on three properties at once, and copy the Motion `transition` or the CSS. Springs are integrated from the same damped-oscillator model Motion uses rather than approximated with a bezier, so the preview is the motion you will ship.
+Alongside it, **[Motion Studio](https://officialudayshukla-code.github.io/frameora/motion-studio)**, a cubic-bezier and spring editor. Drag the curve or tune stiffness, damping and mass, watch it run on three properties at once, and copy the Motion `transition` or the CSS. Springs are integrated from the same damped-oscillator model Motion uses rather than approximated with a bezier, so the preview is the motion you will ship.
 
 ## Components
 
@@ -101,8 +101,8 @@ the build fails on a component that reads a variable nothing defines.
 Requires **Node 20.9+** and Yarn 4 (via Corepack).
 
 ```bash
-git clone https://github.com/nikhils4/ui-beats.git
-cd ui-beats
+git clone https://github.com/officialudayshukla-code/frameora.git
+cd frameora
 corepack enable
 yarn install
 yarn dev
@@ -176,7 +176,7 @@ Everything else is generated:
 
 ## Contributing
 
-Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md) and the [contribute guide](https://uibeats.com/docs/getting-started/contribute). Contributors are credited on their component's docs page.
+Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md) and the [contribute guide](https://officialudayshukla-code.github.io/frameora/docs/getting-started/contribute). Contributors are credited on their component's docs page.
 
 ### Attribution
 
@@ -184,8 +184,8 @@ Every component says where it came from. The `credits` field on each component's
 
 Eighteen components (Tilt Card, Text Scramble, Magnetic Button, Stagger List, Dock, Marquee, Number Ticker, Scroll Reveal, Orbiting Elements, Animated Beam, Animated List, Border Beam, Card Stack, Liquid Tabs, Retro Grid, Ripple Button, Scratch to Reveal and Split Flap) were written with [Claude Code](https://claude.com/claude-code) and are credited as such rather than presented as community contributions. They are reviewed and maintained here like any other component.
 
-<a href="https://github.com/nikhils4/ui-beats/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nikhils4/ui-beats" alt="Contributors" />
+<a href="https://github.com/officialudayshukla-code/frameora/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=officialudayshukla-code/frameora" alt="Contributors" />
 </a>
 
 ## Security
@@ -194,4 +194,9 @@ Found a vulnerability? Please follow [SECURITY.md](SECURITY.md) rather than open
 
 ## License
 
-[MIT](LICENSE.md) © [Nikhil Singh](https://nikhils4.vercel.app)
+[MIT](LICENSE.md) © Frameora
+
+This site and its component library are built on the MIT-licensed
+[UI Beats](https://github.com/nikhils4/ui-beats) project. The original
+copyright notice is preserved in [LICENSE.md](LICENSE.md); see
+[ATTRIBUTION.md](ATTRIBUTION.md) for the full credits.

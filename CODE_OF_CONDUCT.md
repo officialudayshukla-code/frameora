@@ -49,7 +49,7 @@ an individual is officially representing the project in public spaces.
 
 Instances of abusive, harassing, or otherwise unacceptable behaviour may be
 reported privately to the maintainers through
-[GitHub's private report form](https://github.com/nikhils4/ui-beats/security/advisories/new).
+[GitHub's private report form](https://github.com/officialudayshukla-code/frameora/security/advisories/new).
 It is the project's private channel; conduct reports sent there are handled the
 same way. All complaints will be reviewed and investigated promptly and fairly.
 

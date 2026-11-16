@@ -1,4 +1,4 @@
-# UI Beats component reference
+# Frameora component reference
 
 Generated from `public/r/registry.json`. 55 entries.
 
@@ -6,11 +6,11 @@ Install any entry with the shadcn CLI. The source is written into your
 project; there is no package to pin.
 
 ```bash
-npx shadcn@latest add https://uibeats.com/r/<slug>.json
+npx shadcn@latest add https://officialudayshukla-code.github.io/frameora/r/<slug>.json
 ```
 
 Every component ships a props table, an interactive playground and a
-`prefers-reduced-motion` path. Full docs: https://uibeats.com/docs
+`prefers-reduced-motion` path. Full docs: https://officialudayshukla-code.github.io/frameora/docs
 
 ## Blocks
 

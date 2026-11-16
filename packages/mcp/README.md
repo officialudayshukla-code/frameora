@@ -1,6 +1,6 @@
 # @uibeats/mcp
 
-MCP server for [UI Beats](https://uibeats.com). Lets a coding agent search the
+MCP server for [Frameora](https://officialudayshukla-code.github.io/frameora). Lets a coding agent search the
 component catalogue, read a component's full source and props, and install it,
 without anyone opening the website.
 
@@ -52,9 +52,9 @@ a fallback so a brief network failure does not break every tool call.
 
 ## Configuration
 
-| Variable      | Default               | Purpose                                   |
-| ------------- | --------------------- | ----------------------------------------- |
-| `UIBEATS_URL` | `https://uibeats.com` | Point at a local `next dev` while working |
+| Variable      | Default                                              | Purpose                                   |
+| ------------- | ---------------------------------------------------- | ----------------------------------------- |
+| `UIBEATS_URL` | `https://officialudayshukla-code.github.io/frameora` | Point at a local `next dev` while working |
 
 ```bash
 UIBEATS_URL=http://localhost:3000 npx @uibeats/mcp

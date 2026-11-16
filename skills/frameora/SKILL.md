@@ -1,17 +1,17 @@
 ---
-name: ui-beats
-description: Use this skill when users want to add, customize, or troubleshoot UI Beats components in React/Next.js projects. It covers component selection, shadcn registry installation from uibeats.com, the UI Beats MCP server, motion and reduced-motion handling, and integration patterns for animated sections.
+name: frameora
+description: Use this skill when users want to add, customize, or troubleshoot Frameora components in React/Next.js projects. It covers component selection, shadcn registry installation from officialudayshukla-code.github.io/frameora, the Frameora MCP server, motion and reduced-motion handling, and integration patterns for animated sections.
 metadata:
-  short-description: Build animated React interfaces with UI Beats components
+  short-description: Build animated React interfaces with Frameora components
 ---
 
-# UI Beats
+# Frameora
 
-Use this skill when the task involves UI Beats components, animated React
-sections, or turning a static section into a moving one using the UI Beats
+Use this skill when the task involves Frameora components, animated React
+sections, or turning a static section into a moving one using the Frameora
 registry.
 
-UI Beats is a registry of 55 animated React components built with TypeScript,
+Frameora is a registry of 55 animated React components built with TypeScript,
 Tailwind CSS and Motion. The shadcn CLI writes the source into the project, so
 there is no package to pin and no wrapper API to work around. Once installed,
 the file is ordinary project code and can be edited freely.
@@ -20,11 +20,11 @@ the file is ordinary project code and can be edited freely.
 
 Apply this skill when users ask to:
 
-- Add a UI Beats component (for example: border-beam, marquee, flip-card,
+- Add a Frameora component (for example: border-beam, marquee, flip-card,
   text-scramble, particles)
 - Build an animated section: hero, pricing, feature grid, testimonial wall
 - Replace hand-written animation code with a maintained component
-- Troubleshoot installation or imports for `https://uibeats.com/r/*.json`
+- Troubleshoot installation or imports for `https://officialudayshukla-code.github.io/frameora/r/*.json`
 
 ## Core Workflow
 
@@ -32,7 +32,7 @@ Apply this skill when users ask to:
    describe the effect. Load `references/components.md` and match on the
    description, not the slug.
 
-2. **Prefer the MCP server when it is available.** UI Beats ships one, and it
+2. **Prefer the MCP server when it is available.** Frameora ships one, and it
    returns the real props table and full source rather than a guess:
 
    ```bash
@@ -52,17 +52,17 @@ Apply this skill when users ask to:
    npx shadcn@latest init
    ```
 
-4. **Install the component.** UI Beats is a URL registry, so the install
+4. **Install the component.** Frameora is a URL registry, so the install
    target is the full JSON path:
 
    ```bash
-   npx shadcn@latest add https://uibeats.com/r/<slug>.json
+   npx shadcn@latest add https://officialudayshukla-code.github.io/frameora/r/<slug>.json
    ```
 
    Example:
 
    ```bash
-   npx shadcn@latest add https://uibeats.com/r/border-beam.json
+   npx shadcn@latest add https://officialudayshukla-code.github.io/frameora/r/border-beam.json
    ```
 
    Blocks pull their own parts in: installing `hero` also installs the
@@ -73,7 +73,7 @@ Apply this skill when users ask to:
    change, but an unmodified file is easier to re-install later.
 
 6. **Validate before finishing.**
-   - **Motion:** UI Beats components handle `prefers-reduced-motion`
+   - **Motion:** Frameora components handle `prefers-reduced-motion`
      themselves. If you wrap or re-implement one, preserve that path rather
      than stripping it.
    - **Motion budget:** one prominent effect per viewport. Stacking a
@@ -88,8 +88,8 @@ Apply this skill when users ask to:
 ## Common Failures
 
 - **Installing by bare slug.** `npx shadcn@latest add border-beam` resolves
-  against the default registry and will not find UI Beats. The full
-  `https://uibeats.com/r/border-beam.json` URL is required.
+  against the default registry and will not find Frameora. The full
+  `https://officialudayshukla-code.github.io/frameora/r/border-beam.json` URL is required.
 - **Guessed props.** Read `get_component` or the docs page before writing JSX.
 - **Dropped CSS variables.** `animated-beam`, `aurora`, `morphing-card` and
   `gradient-text` ship light and dark CSS variables that the registry writes on
@@ -100,5 +100,5 @@ Apply this skill when users ask to:
 
 - `references/components.md`: the full catalogue with slugs, grouped by
   category, generated from the registry.
-- Docs, props tables and live playgrounds: https://uibeats.com/docs
-- Registry index: https://uibeats.com/r/registry.json
+- Docs, props tables and live playgrounds: https://officialudayshukla-code.github.io/frameora/docs
+- Registry index: https://officialudayshukla-code.github.io/frameora/r/registry.json

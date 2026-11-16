@@ -2,11 +2,11 @@
 
 ## Supported versions
 
-UI Beats is distributed as source you copy into your own project, so there are
+Frameora is distributed as source you copy into your own project, so there are
 no released versions to patch. Fixes land on `main` and are picked up the next
 time you add or re-add a component.
 
-The hosted site at [uibeats.com](https://uibeats.com) is always running the
+The hosted site at [officialudayshukla-code.github.io/frameora](https://officialudayshukla-code.github.io/frameora) is always running the
 latest `main`.
 
 ## Reporting a vulnerability
@@ -14,7 +14,7 @@ latest `main`.
 **Please do not open a public issue for security problems.**
 
 Report it privately through
-[GitHub Security Advisories](https://github.com/nikhils4/ui-beats/security/advisories/new).
+[GitHub Security Advisories](https://github.com/officialudayshukla-code/frameora/security/advisories/new).
 The report stays between you and the maintainers until a fix ships.
 
 Please include:
@@ -38,7 +38,7 @@ You will be credited in the advisory unless you would rather not be.
 
 **In scope**
 
-- The uibeats.com site and its routes
+- The officialudayshukla-code.github.io/frameora site and its routes
 - The shadcn registry endpoints under `/r/`
 - Any component in this repository
 - The build and release tooling in `scripts/`
